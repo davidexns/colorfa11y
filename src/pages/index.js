@@ -5,13 +5,13 @@ import SEO from '../components/seo'
 import Section from '../components/Section'
 import ColorSet from '../components/ColorSet'
 import SampleText from '../components/SampleText'
-import ContrastItem from '../components/ContrastItem'
 import {
   convertFromHsl,
   convertFromRgb,
   convertFromHex,
 } from '../utils/color-converter'
 import { calculateContrast } from '../utils/contrast-calculator'
+import ContrastLevel from '../components/ContrastLevel'
 
 class IndexPage extends Component {
   state = {
@@ -119,18 +119,18 @@ class IndexPage extends Component {
         </Section>
         <Section header="Contrast Ratio">
           <p
-            css="font-size: 48px;font-weight: 500;text-align: center;margin: 24px 0 36px;"
+            css="font-size: 48px;font-weight: 500;text-align: center;margin: 24px 0;"
             data-testid="contrast-ratio"
           >
             {contrast.toFixed(3)}
           </p>
-          <div css="display: flex;flex-wrap: wrap;justify-content: space-between;margin-bottom: 32px;">
-            <ContrastItem label="Normal text" contrast={contrast} />
-            <ContrastItem label="Large text" contrast={contrast} isLarge />
-            <ContrastItem
-              label="Graphical objects"
+          <div css="display: flex;flex-wrap: wrap;">
+            <ContrastLevel header="AA Compliant" contrast={contrast} />
+            <ContrastLevel
+              header="AAA Compliant"
               contrast={contrast}
-              isText={false}
+              textMin={7.0}
+              largeTextMin={4.5}
             />
           </div>
         </Section>

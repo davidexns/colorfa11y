@@ -5,10 +5,9 @@ import styled from 'styled-components'
 import { getTextColor, getBackgroundColor } from '../utils/style-utils'
 
 const Container = styled.span`
-  height: 48px;
   width: 96px;
   text-align: center;
-  padding: 11px 16px;
+  padding: 8px 16px;
   border-radius: 24px;
   background-color: ${props => getBackgroundColor(props.isPass)};
   color: ${props => getTextColor(props.isPass)};
@@ -16,14 +15,12 @@ const Container = styled.span`
   transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
 `
 
-const GraphicalContrastIndicator = ({ contrast }) => {
-  const isPass = contrast >= 3
-
+const ContrastStatus = ({ isPass }) => {
   return <Container isPass={isPass}>{isPass ? 'PASS' : 'FAIL'}</Container>
 }
 
-GraphicalContrastIndicator.propTypes = {
-  contrast: PropTypes.number.isRequired,
+ContrastStatus.propTypes = {
+  isPass: PropTypes.bool.isRequired,
 }
 
-export default GraphicalContrastIndicator
+export default ContrastStatus

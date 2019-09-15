@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Header = styled.header`
   position: relative;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 
   :before {
     content: '';

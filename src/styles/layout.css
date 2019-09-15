@@ -15,13 +15,13 @@
   --gray700: hsl(268, 14%, 28%);
 
   /* reds */
-  --dark-red: hsl(358, 58%, 32%);
+  --dark-red: hsl(358, 62%, 36%);
   --pale-red: hsl(358, 62%, 74%);
-  --light-red: hsl(358, 66%, 90%);
+  --light-red: hsl(358, 72%, 94%);
 
   /* greens */
   --dark-green: hsl(133, 42%, 24%);
-  --light-green: hsl(133, 62%, 88%);
+  --light-green: hsl(133, 62%, 93%);
 }
 
 html {

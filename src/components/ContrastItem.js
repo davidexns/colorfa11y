@@ -2,49 +2,44 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import TextContrastIndicator from './TextContrastIndicator'
-import GraphicalContrastIndicator from './GraphicalContrastIndicator'
 import Row from './Row'
+import ContrastStatus from './GraphicalContrastIndicator'
 
-const ItemRow = styled(Row)`
-  align-items: center;
-  margin: 8px 0;
-
-  :not(:last-child) {
-    margin-right: 16px;
-  }
+const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `
 
 const Label = styled.p`
-  color: var(--gray600);
   font-size: 18px;
-  padding-right: 16px;
+  font-weight: 500;
   margin: 0;
+  color: var(--gray600);
 `
 
-const ContrastItem = ({ contrast, label, isLarge, isText }) => {
-  return (
-    <ItemRow>
-      <Label>{label}</Label>
-      {isText ? (
-        <TextContrastIndicator contrast={contrast} isLarge={isLarge} />
-      ) : (
-        <GraphicalContrastIndicator contrast={contrast} />
-      )}
-    </ItemRow>
-  )
-}
+const Subtext = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--gray600);
+`
 
-ContrastItem.defaultProps = {
-  isLarge: false,
-  isText: true,
-}
+const ContrastItem = ({ label, subtext, contrast, min }) => (
+  <Row css="align-items: center;margin: 8px 0;">
+    <LabelContainer>
+      <Label>{label}</Label>
+      {subtext && <Subtext>{subtext}</Subtext>}
+    </LabelContainer>
+    <ContrastStatus isPass={contrast >= min} />
+  </Row>
+)
 
 ContrastItem.propTypes = {
   contrast: PropTypes.number.isRequired,
-  isLarge: PropTypes.bool,
-  isText: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  min: PropTypes.number.isRequired,
+  subtext: PropTypes.string,
 }
 
 export default ContrastItem
