@@ -14,6 +14,10 @@ export function convertFromHex(hex) {
   return { rgb, hsl: rgbToHsl(rgb) }
 }
 
+/**
+ * Formula and code from:
+ * https://css-tricks.com/converting-color-spaces-in-javascript/#article-header-id-6
+ */
 function hslToRgb({ h, s, l }) {
   s /= 100
   l /= 100
@@ -57,6 +61,10 @@ function hslToRgb({ h, s, l }) {
   return { r, g, b }
 }
 
+/**
+ * Formula and code from:
+ * https://css-tricks.com/converting-color-spaces-in-javascript/#article-header-id-4
+ */
 function rgbToHsl({ r, g, b }) {
   // Make r, g, and b fractions of 1
   r /= 255
@@ -83,16 +91,10 @@ function rgbToHsl({ r, g, b }) {
 
   h = Math.round(h * 60)
 
-  // Make negative hues positive behind 360°
   if (h < 0) h += 360
-
-  // Calculate lightness
   l = (cmax + cmin) / 2
-
-  // Calculate saturation
   s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
 
-  // Multiply l and s by 100
   s = Math.round(+(s * 100).toFixed(1))
   l = Math.round(+(l * 100).toFixed(1))
   return { h, s, l }
@@ -106,6 +108,10 @@ function padHex(val) {
   return val.toString(16).padStart(2, '0')
 }
 
+/**
+ * Formula and code from:
+ * https://css-tricks.com/converting-color-spaces-in-javascript/#article-header-id-2
+ */
 function hexToRgb(hex) {
   let r = 0,
     g = 0,

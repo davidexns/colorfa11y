@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+import media from '../styles/media'
 import Logo from '../assets/colorfa11y-logo.svg'
 
 const StyledHeader = styled.header`
@@ -16,13 +17,15 @@ const Container = styled.div`
   align-items: center;
   height: 100%;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 980px;
+  padding: 0 8px 0 12px;
 `
 
 const SiteTitle = styled.h1`
   font-size: 36px;
   font-weight: 400;
-  margin: 5px 0 0;
+  line-height: 1rem;
+  margin: auto 0;
 `
 
 const LogoAlt = styled.span`
@@ -38,14 +41,32 @@ const LogoAlt = styled.span`
 
 const NavLinks = styled.div`
   a {
-    color: white;
+    color: var(--gray100);
     text-decoration: none;
-    font-size: 24px;
-    padding: 0 8px;
+    font-size: 20px;
+    padding: 4px 16px;
+    border-radius: 1rem;
+
+    ${media.phone`
+      font-size: 24px;
+      padding-left: 20px;
+      padding-right: 20px;
+    `}
+  }
+
+  a.active {
+    background-color: hsl(268, 28%, 46%);
   }
 
   a + a {
-    margin-left: 48px;
+    margin-left: 8px;
+
+    ${media.phone`
+      margin-left: 24px;
+    `}
+    ${media.tablet`
+      margin-left: 48px;
+    `}
   }
 `
 
@@ -66,10 +87,18 @@ const Header = () => (
         </Link>
       </SiteTitle>
       <NavLinks>
-        <Link to="/about" title="Learn more about Colorfa11y">
+        <Link
+          to="/about"
+          title="Learn more about Colorfa11y"
+          activeClassName="active"
+        >
           About
         </Link>
-        <Link to="/contribute" title="Learn how to contribute to Colorfa11y">
+        <Link
+          to="/contribute"
+          title="Learn how to contribute to Colorfa11y"
+          activeClassName="active"
+        >
           Contribute
         </Link>
       </NavLinks>
