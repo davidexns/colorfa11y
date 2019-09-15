@@ -25,6 +25,17 @@ const SiteTitle = styled.h1`
   margin: 5px 0 0;
 `
 
+const LogoAlt = styled.span`
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  position: absolute;
+`
+
 const NavLinks = styled.div`
   a {
     color: white;
@@ -48,13 +59,19 @@ const Header = () => (
             color: `white`,
             textDecoration: `none`,
           }}
+          title="Colorfa11y home"
         >
           <Logo height="40px" width="123px" aria-hidden="true" />
+          <LogoAlt>Colorfa11y home</LogoAlt>
         </Link>
       </SiteTitle>
       <NavLinks>
-        <Link to="/about">About</Link>
-        <Link to="/contribute">Contribute</Link>
+        <Link to="/about" title="Learn more about Colorfa11y">
+          About
+        </Link>
+        <Link to="/contribute" title="Learn how to contribute to Colorfa11y">
+          Contribute
+        </Link>
       </NavLinks>
     </Container>
   </StyledHeader>
