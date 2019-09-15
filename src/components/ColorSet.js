@@ -14,6 +14,10 @@ const Form = styled.form`
     flex-direction: row;
     align-items: center;
   `}
+
+  :not(:last-child) {
+    margin-bottom: 1.45rem;
+  }
 `
 
 const Header = styled.h3`
@@ -24,6 +28,7 @@ const Header = styled.h3`
 
   ${media.desktop`
     margin-bottom: 0;
+    margin-top: 1.45rem;
   `}
 `
 
@@ -36,6 +41,7 @@ const Fieldset = styled.fieldset`
   display: inline-block;
   border: none;
   border-top: 1px solid var(--gray200);
+  margin-bottom: 0;
 
   :not(:last-child) {
     margin-right: 16px;
