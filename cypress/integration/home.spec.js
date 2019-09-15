@@ -148,4 +148,68 @@ describe('Given I am on the home page', () => {
       cy.findByTestId('contrast-ratio').should('have.text', '6.419')
     })
   })
+
+  describe('when I select a AA-complaint (not AAA) color pairing', () => {
+    it('should tell me that I am AA compliant and not AAA compliant', () => {
+      cy.findByTestId('Foreground-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}707070')
+      })
+
+      cy.findByTestId('Background-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}fff')
+      })
+
+      cy.findByText(/is AA compliant/i)
+      cy.findByText(/is not AAA compliant/i)
+    })
+
+    it('should show PASS status for all 3 AA items', () => {
+      cy.findByTestId('Foreground-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}707070')
+      })
+
+      cy.findByTestId('Background-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}fff')
+      })
+
+      cy.findByTestId('AA-compliance').within(() => {
+        cy.queryAllByText(/pass/i).should('have.length', 3)
+      })
+    })
+
+    it('should show FAIL status for AAA normal text', () => {
+      cy.findByTestId('Foreground-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}707070')
+      })
+
+      cy.findByTestId('Background-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}fff')
+      })
+
+      cy.findByTestId('AAA-compliance').within(() => {
+        cy.findByText(/normal text/i)
+          .parent()
+          .parent()
+          .within(() => {
+            cy.findByTestId('contrast-item-status').should('have.text', 'FAIL')
+          })
+        cy.queryAllByText(/pass/i).should('have.length', 2)
+      })
+    })
+  })
+
+  describe('when I select a AAA-complaint color pairing', () => {
+    it('should tell me that I am AAA compliant', () => {
+      cy.findByTestId('Foreground-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}525252')
+      })
+
+      cy.findByTestId('Background-form').within(() => {
+        cy.findByLabelText(/hex/i).type('{selectall}fff')
+      })
+
+      cy.findByText(/is AA compliant/i)
+      cy.findByText(/is AAA compliant/i)
+    })
+  })
 })

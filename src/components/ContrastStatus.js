@@ -16,7 +16,11 @@ const Container = styled.span`
 `
 
 const ContrastStatus = ({ isPass }) => {
-  return <Container isPass={isPass}>{isPass ? 'PASS' : 'FAIL'}</Container>
+  return (
+    <Container isPass={isPass} data-testid="contrast-item-status">
+      {isPass ? 'PASS' : 'FAIL'}
+    </Container>
+  )
 }
 
 ContrastStatus.propTypes = {

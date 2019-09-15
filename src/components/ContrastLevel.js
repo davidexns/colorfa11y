@@ -25,7 +25,7 @@ const HeaderContainer = styled.header`
 `
 
 const HeaderText = styled.h3`
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   margin: 0;
   margin-left: 8px;
@@ -41,11 +41,11 @@ const Svg = styled.svg`
 `
 
 const ContrastLevel = props => {
-  const { header, contrast, textMin, largeTextMin, graphicalMin } = props
+  const { level, contrast, textMin, largeTextMin, graphicalMin } = props
   const isPass = contrast >= Math.max(textMin, largeTextMin, graphicalMin)
 
   return (
-    <Container>
+    <Container data-testid={`${level}-compliance`}>
       <HeaderContainer isPass={isPass}>
         <Svg width="42px" height="42px" viewBox="0 0 20 20" isPass={isPass}>
           <circle cx="10" cy="10" r="8" strokeWidth="1" />
@@ -64,7 +64,9 @@ const ContrastLevel = props => {
             />
           )}
         </Svg>
-        <HeaderText>{header}</HeaderText>
+        <HeaderText>{`Contrast ${
+          isPass ? 'is' : 'is not'
+        } ${level} compliant`}</HeaderText>
       </HeaderContainer>
       <Content>
         <ContrastItem
@@ -99,8 +101,8 @@ ContrastLevel.defaultProps = {
 ContrastLevel.propTypes = {
   contrast: PropTypes.number.isRequired,
   graphicalMin: PropTypes.number,
-  header: PropTypes.string.isRequired,
   largeTextMin: PropTypes.number,
+  level: PropTypes.string.isRequired,
   textMin: PropTypes.number,
 }
 

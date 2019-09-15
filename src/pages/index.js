@@ -125,9 +125,9 @@ class IndexPage extends Component {
             {contrast.toFixed(3)}
           </p>
           <div css="display: flex;flex-wrap: wrap;">
-            <ContrastLevel header="AA Compliant" contrast={contrast} />
+            <ContrastLevel level="AA" contrast={contrast} />
             <ContrastLevel
-              header="AAA Compliant"
+              level="AAA"
               contrast={contrast}
               textMin={7.0}
               largeTextMin={4.5}

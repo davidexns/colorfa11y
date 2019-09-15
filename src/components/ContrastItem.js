@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Row from './Row'
-import ContrastStatus from './GraphicalContrastIndicator'
+import ContrastStatus from './ContrastStatus'
 
 const LabelContainer = styled.div`
   display: flex;
