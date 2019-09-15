@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest/globals": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:jest/recommended",
+    "plugin:cypress/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "overrides": [
+    {
+      "files": ["test-utils/setup.js"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "react", "react-hooks", "jest", "jsx-a11y"],
+  "rules": {
+    "react/prop-types": [
+      "error",
+      {
+        "ignore": ["children"]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
