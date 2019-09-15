@@ -15,6 +15,6 @@
 
 - [Converting Color Spaces in JavaScript, by Jon Kantner on CSS-Tricks](https://css-tricks.com/converting-color-spaces-in-javascript/)
 - [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [Converting Colors](ttps://convertingcolors.com/)
+- [Converting Colors](https://convertingcolors.com/)
 - [WebAIM: Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [Contrast Ratio](https://contrast-ratio.com/)
