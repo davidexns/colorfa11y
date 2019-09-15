@@ -102,7 +102,7 @@ class IndexPage extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Color Utility" />
         <Section header="Select Colors">
           <ColorSet
             header="Foreground"
