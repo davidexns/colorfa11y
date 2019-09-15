@@ -11,7 +11,7 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "jest",
-    "cy": "cypress",
+    "cy": "cypress run",
     "cy:open": "cypress open"
   },
   "husky": {
@@ -37,9 +37,7 @@
     "gatsby-plugin-offline": "^3.0.0",
     "gatsby-plugin-react-helmet": "^3.1.5",
     "gatsby-plugin-react-svg": "^2.1.2",
-    "gatsby-plugin-sharp": "^2.2.22",
     "gatsby-source-filesystem": "^2.1.18",
-    "gatsby-transformer-sharp": "^2.2.12",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
