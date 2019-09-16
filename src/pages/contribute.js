@@ -17,9 +17,6 @@ const ContributePage = () => (
       <p>Some features that I would like to add at some point:</p>
       <ul>
         <li>A better logo</li>
-        <li>
-          Improve descriptiveness and accessibility of contrast test indicators
-        </li>
         <li>Example graphical objects in the Preview section</li>
         <li>
           One-click copy css property to clipboard (ex:{' '}
