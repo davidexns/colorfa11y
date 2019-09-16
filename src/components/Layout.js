@@ -1,13 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
-import { defaultTheme } from '../styles/theme'
+import { defaultTheme, darkTheme } from '../styles/theme'
 import '../styles/layout.css'
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${props => props.theme.primaryText};
+    background: ${props => props.theme.bodyBackground};
+  }
+
+  a {
+    color: ${props => props.theme.linkColor};
+  }
+`
+
+const ThemeToggle = styled.button`
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  margin: 0;
+  border: none;
+  color: ${props => props.theme.primaryText};
+  background: ${props => props.theme.themeButtonBackground};
+  padding: 4px 8px;
+  border-radius: 4px;
+`
+
 const Layout = ({ children }) => {
+  const [isDarkTheme, toggleTheme] = useState(
+    localStorage.getItem('isDarkTheme')
+  )
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -17,9 +43,12 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  useEffect(() => {
+    localStorage.setItem('isDarkTheme', isDarkTheme)
+  }, [isDarkTheme])
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : defaultTheme}>
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
@@ -37,6 +66,10 @@ const Layout = ({ children }) => {
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
         </div>
+        <ThemeToggle onClick={() => toggleTheme(prev => !prev)}>
+          Go {isDarkTheme ? 'Light' : 'Dark'}
+        </ThemeToggle>
+        <GlobalStyle />
       </>
     </ThemeProvider>
   )

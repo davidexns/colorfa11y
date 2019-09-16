@@ -16,18 +16,8 @@ const Container = styled.div`
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  border-bottom: 3px solid
-    ${props =>
-      props.isPass
-        ? props.theme.statusPassForeground
-        : props.theme.statusFailForeground};
-
-  padding: 4px 12px;
-
-  background: ${props =>
-    props.isPass
-      ? props.theme.statusPassLightBackground
-      : props.theme.statusFailLightBackground};
+  border-bottom: 1px solid ${props => props.theme.cardBorder};
+  padding: 16px 12px 12px;
 `
 
 const HeaderText = styled.h3`
@@ -41,14 +31,6 @@ const Content = styled.div`
   padding: 0px 16px 8px;
 `
 
-const Svg = styled.svg`
-  fill: transparent;
-  stroke: ${props =>
-    props.isPass
-      ? props.theme.statusPassForeground
-      : props.theme.statusFailForeground};
-`
-
 const ContrastLevel = props => {
   const { level, contrast, textMin, largeTextMin, graphicalMin } = props
   const isPass = contrast >= Math.max(textMin, largeTextMin, graphicalMin)
@@ -56,26 +38,7 @@ const ContrastLevel = props => {
   return (
     <Container data-testid={`${level}-compliance`}>
       <HeaderContainer isPass={isPass}>
-        <Svg width="42px" height="42px" viewBox="0 0 20 20" isPass={isPass}>
-          <circle cx="10" cy="10" r="8" strokeWidth="1" />
-          {isPass ? (
-            <path
-              d="M5,10.75 l3.75,4 l5.5,-8"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          ) : (
-            <path
-              d="M6.25,6.25 l7.5,7.5 M13.75,6.25 l-7.5,7.5"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          )}
-        </Svg>
-        <HeaderText>{`Contrast ${
-          isPass ? 'is' : 'is not'
-        } ${level} compliant`}</HeaderText>
+        <HeaderText>{level} Compliance</HeaderText>
       </HeaderContainer>
       <Content>
         <ContrastItem

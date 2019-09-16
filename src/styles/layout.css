@@ -8,11 +8,13 @@
   /* grays */
   --gray100: hsl(268, 18%, 94%);
   --gray200: hsl(268, 14%, 78%);
-  --gray300: hsl(268, 14%, 58%);
+  --gray300: hsl(268, 14%, 62%);
   --gray400: hsl(268, 11%, 50%);
   --gray500: hsl(268, 13%, 38%);
   --gray600: hsl(268, 14%, 36%);
   --gray700: hsl(268, 14%, 28%);
+  --gray800: hsl(268, 18%, 18%);
+  --gray900: hsl(268, 12%, 14%);
 
   /* reds */
   --dark-red: hsl(358, 62%, 36%);
@@ -227,8 +229,6 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsl(268, 14%, 28%);
-  background: hsl(268, 38%, 98%);
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
