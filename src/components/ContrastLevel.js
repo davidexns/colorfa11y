@@ -6,9 +6,9 @@ import ContrastItem from './ContrastItem'
 const Container = styled.div`
   flex: 1;
   margin: 8px;
-  background-color: white;
+  background: ${props => props.theme.cardBackground};
   border-radius: 8px;
-  border: 1px solid var(--gray100);
+  border: 1px solid ${props => props.theme.cardBorder};
   min-width: 360px;
   overflow: hidden;
 `
@@ -17,11 +17,17 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   border-bottom: 3px solid
-    ${props => `var(--dark-${props.isPass ? 'green' : 'red'})`};
+    ${props =>
+      props.isPass
+        ? props.theme.statusPassForeground
+        : props.theme.statusFailForeground};
 
   padding: 4px 12px;
 
-  background: ${props => `var(--light-${props.isPass ? 'green' : 'red'})`};
+  background: ${props =>
+    props.isPass
+      ? props.theme.statusPassLightBackground
+      : props.theme.statusFailLightBackground};
 `
 
 const HeaderText = styled.h3`
@@ -37,7 +43,10 @@ const Content = styled.div`
 
 const Svg = styled.svg`
   fill: transparent;
-  stroke: ${props => `var(--dark-${props.isPass ? 'green' : 'red'})`};
+  stroke: ${props =>
+    props.isPass
+      ? props.theme.statusPassForeground
+      : props.theme.statusFailForeground};
 `
 
 const ContrastLevel = props => {

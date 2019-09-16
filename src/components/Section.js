@@ -10,7 +10,7 @@ const Header = styled.header`
   :before {
     content: '';
     width: 100%;
-    border-bottom: solid 1px var(--gray200);
+    border-bottom: solid 1px ${props => props.theme.kabobBorder};
     position: absolute;
     left: 0;
     top: 50%;
@@ -24,8 +24,8 @@ const HeaderText = styled.h2`
   font-size: 24px;
   font-weight: 400;
   text-decoration: none;
-  color: var(--gray600);
-  background-color: var(--page-background);
+  color: ${props => props.theme.sectionHeaderText};
+  background: ${props => props.theme.bodyBackground};
   margin: 0;
   padding: 0 12px;
   z-index: 2;

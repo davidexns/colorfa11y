@@ -17,11 +17,13 @@
   /* reds */
   --dark-red: hsl(358, 62%, 36%);
   --pale-red: hsl(358, 62%, 74%);
-  --light-red: hsl(358, 72%, 94%);
+  --light-red: hsl(358, 66%, 90%);
+  --extra-light-red: hsl(358, 72%, 94%);
 
   /* greens */
   --dark-green: hsl(133, 42%, 24%);
-  --light-green: hsl(133, 62%, 93%);
+  --light-green: hsl(133, 62%, 88%);
+  --extra-light-green: hsl(133, 62%, 93%);
 }
 
 html {
@@ -226,7 +228,7 @@ html {
 }
 body {
   color: hsl(268, 14%, 28%);
-  background-color: hsl(268, 38%, 98%);
+  background: hsl(268, 38%, 98%);
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   word-wrap: break-word;

@@ -40,7 +40,7 @@ const FieldsetWrapper = styled.div`
 const Fieldset = styled.fieldset`
   display: inline-block;
   border: none;
-  border-top: 1px solid var(--gray200);
+  border-top: 1px solid ${props => props.theme.kabobBorder};
   margin-bottom: 0;
 
   :not(:last-child) {
@@ -50,17 +50,17 @@ const Fieldset = styled.fieldset`
 
 const Legend = styled.legend`
   padding: 4px 8px;
-  color: var(--gray600);
+  color: ${props => props.theme.supplementalText};
   font-size: 18px;
   width: auto;
   text-align: center;
 `
 
 const InputContainer = styled(Row)`
-  border: 2px solid var(--gray200);
+  border: 2px solid ${props => props.theme.inputBorder};
   border-radius: 6px;
   padding: 6px;
-  background: white;
+  background: ${props => props.theme.inputBackground};
   margin-bottom: 0;
 `
 
