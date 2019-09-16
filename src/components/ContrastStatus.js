@@ -2,17 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { getTextColor, getBackgroundColor } from '../utils/style-utils'
-
 const Container = styled.span`
   width: 96px;
   text-align: center;
   padding: 8px 16px;
   border-radius: 24px;
-  background-color: ${props => getBackgroundColor(props.isPass)};
-  color: ${props => getTextColor(props.isPass)};
+  background: ${props =>
+    props.isPass
+      ? props.theme.statusPassBackground
+      : props.theme.statusFailBackground};
+  color: ${props =>
+    props.isPass
+      ? props.theme.statusPassForeground
+      : props.theme.statusFailForeground};
   font-weight: 700;
-  transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: color 150ms ease-in-out, background 150ms ease-in-out;
 `
 
 const ContrastStatus = ({ isPass }) => {

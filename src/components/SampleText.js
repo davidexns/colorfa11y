@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const Container = styled.section`
   padding: 16px;
-  background-color: ${props => props.backgroundColor};
-  border: 2px solid var(--gray300);
+  background: ${props => props.backgroundColor};
+  border: 2px solid ${props => props.theme.previewBorder};
   border-radius: 8px;
 `
 
