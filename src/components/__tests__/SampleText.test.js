@@ -21,7 +21,7 @@ describe('SampleText', () => {
       'rgb(180,120,60)'
     )
     expect(getByTestId('color-preview')).toHaveStyleRule(
-      'background',
+      'background-color',
       'rgb(45,90,135)'
     )
   })

@@ -11,16 +11,15 @@ const Container = styled.div`
   align-items: center;
 
   :not(:only-of-type):not(:last-of-type) {
-    border-right: 1px solid ${props => props.theme.inputDivider};
+    border-right: 1px solid var(--gray100);
   }
 `
 
 const Input = styled.input`
-  background: transparent;
   box-sizing: content-box;
   padding: 0 16px;
   font-size: 24px;
-  color: ${props => props.theme.primaryText};
+  color: var(--gray700);
   text-align: center;
   text-transform: uppercase;
   outline: none;
@@ -30,12 +29,12 @@ const Input = styled.input`
   transition: border-bottom-color 200ms ease-out;
 
   &:focus {
-    border-bottom-color: ${props => props.theme.focusUnderline};
+    border-bottom-color: var(--pale-red);
   }
 `
 
 const InnerLabel = styled.label`
-  color: ${props => props.theme.inputInnerLabel};
+  color: var(--gray500);
   font-size: 14px;
   line-height: 22px;
 `
@@ -43,7 +42,7 @@ const InnerLabel = styled.label`
 const SupplementalText = styled.span`
   position: absolute;
   font-size: 20px;
-  color: ${props => props.theme.inputStaticText};
+  color: var(--gray400);
 `
 
 const ColorField = props => {
