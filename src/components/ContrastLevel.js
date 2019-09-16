@@ -6,9 +6,9 @@ import ContrastItem from './ContrastItem'
 const Container = styled.div`
   flex: 1;
   margin: 8px;
-  background: ${props => props.theme.cardBackground};
+  background: white;
   border-radius: 8px;
-  border: 1px solid ${props => props.theme.cardBorder};
+  border: 1px solid var(--gray100);
   min-width: 360px;
   overflow: hidden;
 `
@@ -16,7 +16,7 @@ const Container = styled.div`
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.cardBorder};
+  border-bottom: 1px solid var(--gray100);
   padding: 16px 12px 12px;
 `
 
