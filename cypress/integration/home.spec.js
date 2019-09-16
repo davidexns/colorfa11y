@@ -149,20 +149,7 @@ describe('Given I am on the home page', () => {
     })
   })
 
-  describe('when I select a AA-complaint (not AAA) color pairing', () => {
-    it('should tell me that I am AA compliant and not AAA compliant', () => {
-      cy.findByTestId('Foreground-form').within(() => {
-        cy.findByLabelText(/hex/i).type('{selectall}707070')
-      })
-
-      cy.findByTestId('Background-form').within(() => {
-        cy.findByLabelText(/hex/i).type('{selectall}fff')
-      })
-
-      cy.findByText(/is AA compliant/i)
-      cy.findByText(/is not AAA compliant/i)
-    })
-
+  describe('when I select a fully AA-compliant color pairing', () => {
     it('should show PASS status for all 3 AA items', () => {
       cy.findByTestId('Foreground-form').within(() => {
         cy.findByLabelText(/hex/i).type('{selectall}707070')
@@ -198,8 +185,8 @@ describe('Given I am on the home page', () => {
     })
   })
 
-  describe('when I select a AAA-complaint color pairing', () => {
-    it('should tell me that I am AAA compliant', () => {
+  describe('when I select a fully AAA-compliant color pairing', () => {
+    it('should show PASS status for all 3 AA items', () => {
       cy.findByTestId('Foreground-form').within(() => {
         cy.findByLabelText(/hex/i).type('{selectall}525252')
       })
@@ -208,8 +195,9 @@ describe('Given I am on the home page', () => {
         cy.findByLabelText(/hex/i).type('{selectall}fff')
       })
 
-      cy.findByText(/is AA compliant/i)
-      cy.findByText(/is AAA compliant/i)
+      cy.findByTestId('AAA-compliance').within(() => {
+        cy.queryAllByText(/pass/i).should('have.length', 3)
+      })
     })
   })
 })

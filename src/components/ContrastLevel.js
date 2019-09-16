@@ -6,7 +6,7 @@ import ContrastItem from './ContrastItem'
 const Container = styled.div`
   flex: 1;
   margin: 8px;
-  background-color: white;
+  background: white;
   border-radius: 8px;
   border: 1px solid var(--gray100);
   min-width: 360px;
@@ -16,12 +16,8 @@ const Container = styled.div`
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  border-bottom: 3px solid
-    ${props => `var(--dark-${props.isPass ? 'green' : 'red'})`};
-
-  padding: 4px 12px;
-
-  background: ${props => `var(--light-${props.isPass ? 'green' : 'red'})`};
+  border-bottom: 1px solid var(--gray100);
+  padding: 16px 12px 12px;
 `
 
 const HeaderText = styled.h3`
@@ -35,11 +31,6 @@ const Content = styled.div`
   padding: 0px 16px 8px;
 `
 
-const Svg = styled.svg`
-  fill: transparent;
-  stroke: ${props => `var(--dark-${props.isPass ? 'green' : 'red'})`};
-`
-
 const ContrastLevel = props => {
   const { level, contrast, textMin, largeTextMin, graphicalMin } = props
   const isPass = contrast >= Math.max(textMin, largeTextMin, graphicalMin)
@@ -47,26 +38,7 @@ const ContrastLevel = props => {
   return (
     <Container data-testid={`${level}-compliance`}>
       <HeaderContainer isPass={isPass}>
-        <Svg width="42px" height="42px" viewBox="0 0 20 20" isPass={isPass}>
-          <circle cx="10" cy="10" r="8" strokeWidth="1" />
-          {isPass ? (
-            <path
-              d="M5,10.75 l3.75,4 l5.5,-8"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          ) : (
-            <path
-              d="M6.25,6.25 l7.5,7.5 M13.75,6.25 l-7.5,7.5"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          )}
-        </Svg>
-        <HeaderText>{`Contrast ${
-          isPass ? 'is' : 'is not'
-        } ${level} compliant`}</HeaderText>
+        <HeaderText>{level} Compliance</HeaderText>
       </HeaderContainer>
       <Content>
         <ContrastItem
