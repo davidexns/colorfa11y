@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -12,6 +13,17 @@ import {
 } from '../utils/color-converter'
 import { calculateContrast } from '../utils/contrast-calculator'
 import ContrastLevel from '../components/ContrastLevel'
+
+const StyledH2 = styled.h2`
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 12px 24px;
+  margin: 0 auto 16px;
+  border-left: 3px solid var(--gray400);
+  border-right: 3px solid var(--gray400);
+  border-radius: 12px;
+`
 
 class IndexPage extends Component {
   state = {
@@ -103,6 +115,9 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO title="Color Utility" />
+        <StyledH2>
+          Color-fully! Match colors that support an accessible web.
+        </StyledH2>
         <Section header="Select Colors">
           <ColorSet
             header="Foreground"

@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+        <main css="display: flex;flex-direction: column;">{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
