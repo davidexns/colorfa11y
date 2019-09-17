@@ -6,29 +6,29 @@ const Header = styled.header`
   position: relative;
   text-align: center;
   margin-bottom: 16px;
-
-  :before {
-    content: '';
-    width: 100%;
-    border-bottom: solid 1px var(--gray200);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: 1;
-  }
 `
 
 const HeaderText = styled.h2`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   font-size: 24px;
   font-weight: 400;
   text-decoration: none;
   color: var(--gray600);
-  background-color: var(--page-background);
   margin: 0;
-  padding: 0 12px;
-  z-index: 2;
+
+  :before,
+  :after {
+    content: '';
+    border-top: 1px solid var(--gray200);
+    flex: 1;
+    margin: 0 12px 0 0;
+  }
+
+  :after {
+    margin: 0 0 0 12px;
+  }
 `
 
 const Section = ({ children, header }) => (
