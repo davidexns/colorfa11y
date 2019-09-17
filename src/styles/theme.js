@@ -24,6 +24,7 @@ export const defaultTheme = {
   statusFailHeaderBackground: 'var(--extra-light-red)',
   previewBorder: 'var(--gray300)',
   themeButtonBackground: 'var(--gray200)',
+  decorativeBrackets: 'var(--gray300)',
 }
 
 export const darkTheme = {
@@ -50,4 +51,5 @@ export const darkTheme = {
   statusFailHeaderBackground: 'hsl(358, 48%, 64%)',
   previewBorder: 'var(--gray400)',
   themeButtonBackground: 'var(--gray700)',
+  decorativeBrackets: 'var(--gray400)',
 }

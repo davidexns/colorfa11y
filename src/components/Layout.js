@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     color: ${props => props.theme.primaryText};
     background-color: ${props => props.theme.bodyBackground};
-    transition: background-color 100ms ease-out;
+    transition: background-color 100ms ease-out, color 100ms ease-out;
   }
 
   a {
@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
 const ThemeToggle = styled.button`
   position: fixed;
-  right: 8px;
-  bottom: 8px;
+  right: 16px;
+  bottom: 16px;
   margin: 0;
   border: none;
   color: ${props => props.theme.primaryText};
@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
             paddingTop: 0,
           }}
         >
-          <main>{children}</main>
+          <main css="display: flex;flex-direction: column;">{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with
             {` `}
