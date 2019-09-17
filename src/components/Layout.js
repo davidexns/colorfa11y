@@ -11,7 +11,8 @@ import '../styles/layout.css'
 const GlobalStyle = createGlobalStyle`
   body {
     color: ${props => props.theme.primaryText};
-    background: ${props => props.theme.bodyBackground};
+    background-color: ${props => props.theme.bodyBackground};
+    transition: background-color 100ms ease-out;
   }
 
   a {

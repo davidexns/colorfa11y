@@ -40,7 +40,7 @@ const FieldsetWrapper = styled.div`
 const Fieldset = styled.fieldset`
   display: inline-block;
   border: none;
-  border-top: 1px solid ${props => props.theme.kabobBorder};
+  border-top: 1px solid ${props => props.theme.kebabBorder};
   margin-bottom: 0;
 
   :not(:last-child) {
@@ -60,7 +60,7 @@ const InputContainer = styled(Row)`
   border: 2px solid ${props => props.theme.inputBorder};
   border-radius: 6px;
   padding: 6px;
-  background: ${props => props.theme.inputBackground};
+  background-color: ${props => props.theme.inputBackground};
   margin-bottom: 0;
 `
 
