@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
+import { getLocalTheme, setLocalTheme } from '../utils/storage'
 import { defaultTheme, darkTheme } from '../styles/theme'
 import '../styles/layout.css'
 
@@ -31,9 +32,8 @@ const ThemeToggle = styled.button`
 `
 
 const Layout = ({ children }) => {
-  const [isDarkTheme, toggleTheme] = useState(
-    localStorage.getItem('isDarkTheme')
-  )
+  const [isDarkTheme, toggleTheme] = useState(getLocalTheme())
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -43,8 +43,9 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
   useEffect(() => {
-    localStorage.setItem('isDarkTheme', isDarkTheme)
+    setLocalTheme(isDarkTheme)
   }, [isDarkTheme])
 
   return (
