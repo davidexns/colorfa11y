@@ -88,14 +88,14 @@ const Header = () => (
       </SiteTitle>
       <NavLinks>
         <Link
-          to="/about"
+          to="/about/"
           title="Learn more about Colorfa11y"
           activeClassName="active"
         >
           About
         </Link>
         <Link
-          to="/contribute"
+          to="/contribute/"
           title="Learn how to contribute to Colorfa11y"
           activeClassName="active"
         >
