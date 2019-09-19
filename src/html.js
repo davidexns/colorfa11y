@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/** Theme persistence implementation courtesy of Dan Abramov's overreacted.io
+ * https://github.com/gaearon/overreacted.io/blob/master/src/html.js
+ */
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
