@@ -1,19 +1,11 @@
-import { css } from 'styled-components'
+const mediaQuery = breakpoint => `@media (min-width: ${breakpoint}px)`
 
-const sizes = {
-  desktopWide: 1824,
-  desktop: 1024,
-  tablet: 768,
-  phone: 480,
+const media = {
+  custom: mediaQuery,
+  desktopWide: mediaQuery(1824),
+  desktop: mediaQuery(1024),
+  tablet: mediaQuery(768),
+  phone: mediaQuery(480),
 }
-
-const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${sizes[label]}px) {
-      ${css(...args)}
-    }
-  `
-  return acc
-}, {})
 
 export default media
