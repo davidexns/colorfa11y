@@ -46,23 +46,24 @@ const NavLinks = styled.div`
     font-size: 20px;
     padding: 4px 16px;
     border-radius: 1rem;
-    ${media.phone`
+
+    ${media.phone} {
       font-size: 24px;
       padding-left: 20px;
       padding-right: 20px;
-    `}
+    }
   }
   a.active {
     background: ${props => props.theme.activeNavLink};
   }
   a + a {
     margin-left: 8px;
-    ${media.phone`
+    ${media.phone} {
       margin-left: 24px;
-    `}
-    ${media.tablet`
+    }
+    ${media.tablet} {
       margin-left: 48px;
-    `}
+    }
   }
 `
 

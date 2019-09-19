@@ -9,10 +9,12 @@ import media from '../styles/media'
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  ${media.desktop`
+
+  ${media.desktop} {
     flex-direction: row;
     align-items: center;
-  `}
+  }
+
   :not(:last-child) {
     margin-bottom: 1.45rem;
   }
@@ -23,10 +25,11 @@ const Header = styled.h3`
   margin-bottom: 0;
   margin-right: auto;
   margin-bottom: 16px;
-  ${media.desktop`
+
+  ${media.desktop} {
     margin-bottom: 0;
     margin-top: 1.45rem;
-  `}
+  }
 `
 
 const FieldsetWrapper = styled.div`
