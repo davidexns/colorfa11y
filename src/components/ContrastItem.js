@@ -15,14 +15,14 @@ const Label = styled.p`
   font-size: 18px;
   font-weight: 500;
   margin: 0;
-  color: var(--gray600);
+  color: ${props => props.theme.primaryText};
 `
 
 const Subtext = styled.p`
   font-size: 16px;
   font-weight: 400;
   margin: 0;
-  color: var(--gray600);
+  color: ${props => props.theme.supplementalText};
 `
 
 const ContrastItem = ({ label, subtext, contrast, min }) => (

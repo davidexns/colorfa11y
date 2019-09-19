@@ -1,29 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
 
 :root {
-  /* purples */
+  /* header */
   --header-background: hsl(268, 64%, 24%);
-  --page-background: hsl(268, 38%, 98%);
+  --header-text: var(--gray100);
+  --active-nav-link: hsl(268, 28%, 46%);
 
   /* grays */
   --gray100: hsl(268, 18%, 94%);
   --gray200: hsl(268, 14%, 78%);
-  --gray300: hsl(268, 14%, 58%);
+  --gray300: hsl(268, 14%, 62%);
   --gray400: hsl(268, 11%, 50%);
   --gray500: hsl(268, 13%, 38%);
   --gray600: hsl(268, 14%, 36%);
   --gray700: hsl(268, 14%, 28%);
+  --gray800: hsl(268, 18%, 18%);
+  --gray900: hsl(268, 12%, 14%);
 
   /* reds */
   --dark-red: hsl(358, 62%, 36%);
   --pale-red: hsl(358, 62%, 74%);
-  --light-red: hsl(358, 72%, 94%);
+  --light-red: hsl(358, 66%, 90%);
+  --extra-light-red: hsl(358, 72%, 94%);
 
   /* greens */
   --dark-green: hsl(133, 42%, 24%);
-  --light-green: hsl(133, 62%, 93%);
+  --light-green: hsl(133, 62%, 88%);
+  --extra-light-green: hsl(133, 62%, 93%);
 }
-
 html {
   font-family: 'Montserrat', sans-serif;
   -ms-text-size-adjust: 100%;
@@ -33,6 +37,57 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* theme variables */
+  --body-background: hsl(268, 38%, 98%);
+  --primary-text: var(--gray700);
+  --section-header-text: var(--gray600);
+  --supplemental-text: var(--gray600);
+  --input-background: white;
+  --input-border: var(--gray200);
+  --input-divider: var(--gray100);
+  --input-inner-label: var(--gray500);
+  --input-static-text: var(--gray400);
+  --focus-underline: var(--pale-red);
+  --link-color: -webkit-link;
+  --kebab-border: var(--gray200);
+  --card-background: white;
+  --card-border: var(--gray100);
+  --status-pass-foreground: var(--dark-green);
+  --status-pass-background: var(--light-green);
+  --status-pass-header-background: var(--extra-light-green);
+  --status-fail-foreground: var(--dark-red);
+  --status-fail-background: var(--light-red);
+  --status-fail-header-background: var(--extra-light-red);
+  --preview-border: var(--gray300);
+  --theme-button-background: var(--gray200);
+  --decorative-brackets: var(--gray300);
+}
+body.dark {
+  /* theme variables */
+  --body-background: var(--gray900);
+  --primary-text: var(--gray100);
+  --section-header-text: var(--gray200);
+  --supplemental-text: var(--gray200);
+  --input-background: hsl(268, 14%, 10%);
+  --input-border: var(--gray600);
+  --input-divider: var(--gray200);
+  --input-inner-label: var(--gray200);
+  --input-static-text: var(--gray300);
+  --focus-underline: hsl(358, 82%, 76%);
+  --link-color: var(--pale-red);
+  --card-background: var(--gray800);
+  --card-border: var(--gray700);
+  --kebab-border: var(--gray500);
+  --status-pass-foreground: var(--dark-green);
+  --status-pass-background: hsl(133, 48%, 78%);
+  --status-pass-header-background: hsl(133, 48%, 64%);
+  --status-fail-foreground: var(--dark-red);
+  --status-fail-background: hsl(358, 48%, 78%);
+  --status-fail-header-background: hsl(358, 48%, 64%);
+  --preview-border: var(--gray400);
+  --theme-button-background: var(--gray700);
+  --decorative-brackets: var(--gray400);
 }
 article,
 aside,
@@ -225,8 +280,6 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsl(268, 14%, 28%);
-  background-color: hsl(268, 38%, 98%);
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   word-wrap: break-word;

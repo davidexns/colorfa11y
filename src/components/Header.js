@@ -7,7 +7,7 @@ import Logo from '../assets/colorfa11y-logo.svg'
 
 const StyledHeader = styled.header`
   height: 50px;
-  background: var(--header-background);
+  background: ${props => props.theme.headerBackground};
   margin-bottom: 1.45rem;
 `
 
@@ -41,26 +41,22 @@ const LogoAlt = styled.span`
 
 const NavLinks = styled.div`
   a {
-    color: var(--gray100);
+    color: ${props => props.theme.headerText};
     text-decoration: none;
     font-size: 20px;
     padding: 4px 16px;
     border-radius: 1rem;
-
     ${media.phone`
       font-size: 24px;
       padding-left: 20px;
       padding-right: 20px;
     `}
   }
-
   a.active {
-    background-color: hsl(268, 28%, 46%);
+    background: ${props => props.theme.activeNavLink};
   }
-
   a + a {
     margin-left: 8px;
-
     ${media.phone`
       margin-left: 24px;
     `}
