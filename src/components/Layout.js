@@ -4,8 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
-import { getLocalTheme, setLocalTheme } from '../utils/storage'
-import { defaultTheme, darkTheme } from '../styles/theme'
+import theme from '../styles/theme'
 import '../styles/layout.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -33,36 +32,30 @@ const ThemeToggle = styled.button`
 `
 
 class Layout extends Component {
-  propTypes = {
+  static propTypes = {
     children: PropTypes.node.isRequired,
   }
 
   state = {
-    mounted: false,
-    isDarkTheme: false,
+    selectedTheme: 'light',
   }
 
   componentDidMount() {
-    const isDarkTheme = getLocalTheme()
-
-    this.setState({ isDarkTheme, mounted: true })
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.isDarkTheme !== this.state.isDarkTheme) {
-      setLocalTheme(this.state.isDarkTheme)
+    this.setState({ selectedTheme: window.__theme })
+    window.__onThemeChange = () => {
+      this.setState({ selectedTheme: window.__theme })
     }
   }
 
   toggleTheme = () => {
-    this.setState(prevState => ({ isDarkTheme: !prevState.isDarkTheme }))
+    window.__setPreferredTheme(
+      this.state.selectedTheme === 'light' ? 'dark' : 'light'
+    )
   }
 
   render() {
-    const { isDarkTheme } = this.state
-
     return (
-      <ThemeProvider theme={isDarkTheme ? darkTheme : defaultTheme}>
+      <ThemeProvider theme={theme}>
         <StaticQuery
           query={graphql`
             query SiteTitleQuery {
@@ -94,7 +87,7 @@ class Layout extends Component {
                 </footer>
               </div>
               <ThemeToggle onClick={this.toggleTheme}>
-                Go {isDarkTheme ? 'Light' : 'Dark'}
+                Go {this.state.selectedTheme === 'dark' ? 'Light' : 'Dark'}
               </ThemeToggle>
               <GlobalStyle />
             </>
