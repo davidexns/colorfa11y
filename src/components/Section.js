@@ -15,17 +15,15 @@ const HeaderText = styled.h2`
   font-size: 24px;
   font-weight: 400;
   text-decoration: none;
-  color: var(--gray600);
+  color: ${props => props.theme.sectionHeaderText};
   margin: 0;
-
   :before,
   :after {
     content: '';
-    border-top: 1px solid var(--gray200);
+    border-top: 1px solid ${props => props.theme.kebabBorder};
     flex: 1;
     margin: 0 12px 0 0;
   }
-
   :after {
     margin: 0 0 0 12px;
   }

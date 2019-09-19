@@ -9,12 +9,10 @@ import media from '../styles/media'
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-
   ${media.desktop`
     flex-direction: row;
     align-items: center;
   `}
-
   :not(:last-child) {
     margin-bottom: 1.45rem;
   }
@@ -25,7 +23,6 @@ const Header = styled.h3`
   margin-bottom: 0;
   margin-right: auto;
   margin-bottom: 16px;
-
   ${media.desktop`
     margin-bottom: 0;
     margin-top: 1.45rem;
@@ -40,9 +37,8 @@ const FieldsetWrapper = styled.div`
 const Fieldset = styled.fieldset`
   display: inline-block;
   border: none;
-  border-top: 1px solid var(--gray200);
+  border-top: 1px solid ${props => props.theme.kebabBorder};
   margin-bottom: 0;
-
   :not(:last-child) {
     margin-right: 16px;
   }
@@ -50,17 +46,17 @@ const Fieldset = styled.fieldset`
 
 const Legend = styled.legend`
   padding: 4px 8px;
-  color: var(--gray600);
+  color: ${props => props.theme.supplementalText};
   font-size: 18px;
   width: auto;
   text-align: center;
 `
 
 const InputContainer = styled(Row)`
-  border: 2px solid var(--gray200);
+  border: 2px solid ${props => props.theme.inputBorder};
   border-radius: 6px;
   padding: 6px;
-  background: white;
+  background-color: ${props => props.theme.inputBackground};
   margin-bottom: 0;
 `
 
