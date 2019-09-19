@@ -72,7 +72,7 @@ body.dark {
   --input-background: hsl(268, 14%, 10%);
   --input-border: var(--gray600);
   --input-divider: var(--gray200);
-  --input-inner-label: var(--gray700);
+  --input-inner-label: var(--gray200);
   --input-static-text: var(--gray300);
   --focus-underline: hsl(358, 82%, 76%);
   --link-color: var(--pale-red);
