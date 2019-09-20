@@ -20,8 +20,8 @@ const StyledH2 = styled.h2`
   text-align: center;
   padding: 12px 24px;
   margin: 0 auto 16px;
-  border-left: 3px solid ${props => props.theme.decorativeBrackets};
-  border-right: 3px solid ${props => props.theme.decorativeBrackets};
+  border-left: 3px solid var(--decorative-brackets);
+  border-right: 3px solid var(--decorative-brackets);
   border-radius: 12px;
 `
 

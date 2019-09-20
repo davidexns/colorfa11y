@@ -9,12 +9,12 @@ const Container = styled.span`
   border-radius: 24px;
   background: ${props =>
     props.isPass
-      ? props.theme.statusPassBackground
-      : props.theme.statusFailBackground};
+      ? 'var(--status-pass-background)'
+      : 'var(--status-fail-background)'};
   color: ${props =>
     props.isPass
-      ? props.theme.statusPassForeground
-      : props.theme.statusFailForeground};
+      ? 'var(--status-pass-foreground)'
+      : 'var(--status-fail-foreground)'};
   font-weight: 700;
   transition: color 150ms ease-in-out, background 150ms ease-in-out;
 `

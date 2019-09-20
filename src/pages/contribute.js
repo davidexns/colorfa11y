@@ -22,7 +22,6 @@ const ContributePage = () => (
           One-click copy css property to clipboard (ex:{' '}
           <code>color: hsl(268, 14%, 28%);</code>)
         </li>
-        <li>Dark mode!</li>
         <li>
           Save a list of a user&apos;s recent (or favorite) colors in local
           storage

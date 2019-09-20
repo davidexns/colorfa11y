@@ -15,12 +15,12 @@ const HeaderText = styled.h2`
   font-size: 24px;
   font-weight: 400;
   text-decoration: none;
-  color: ${props => props.theme.sectionHeaderText};
+  color: var(--section-header-text);
   margin: 0;
   :before,
   :after {
     content: '';
-    border-top: 1px solid ${props => props.theme.kebabBorder};
+    border-top: 1px solid var(--kebab-border);
     flex: 1;
     margin: 0 12px 0 0;
   }

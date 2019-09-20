@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Container = styled.section`
   padding: 16px;
   background: ${props => props.backgroundColor};
-  border: 2px solid ${props => props.theme.previewBorder};
+  border: 2px solid var(--preview-border);
   border-radius: 8px;
 `
 

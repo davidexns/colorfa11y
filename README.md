@@ -5,7 +5,6 @@
 ## TODO
 
 - [ ] Example graphical objects in the Preview section
-- [ ] Dark theme
 - [ ] Add ability to copy specific colors to clipboard
 - [ ] Convert to TypeScript
 - [ ] Convert about & contribute page content to MDX?
