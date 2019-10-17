@@ -1,14 +1,14 @@
-export function convertFromHsl(hsl) {
-  const rgb = hslToRgb(hsl)
+export function convertFromHsl(hsl: Hsl) {
+  const rgb: Rgb = hslToRgb(hsl)
 
   return { rgb, hex: rgbToHex(rgb) }
 }
 
-export function convertFromRgb(rgb) {
+export function convertFromRgb(rgb: Rgb) {
   return { hsl: rgbToHsl(rgb), hex: rgbToHex(rgb) }
 }
 
-export function convertFromHex(hex) {
+export function convertFromHex(hex: string) {
   const rgb = hexToRgb(hex)
 
   return { rgb, hsl: rgbToHsl(rgb) }
@@ -18,7 +18,7 @@ export function convertFromHex(hex) {
  * Formula and code from:
  * https://css-tricks.com/converting-color-spaces-in-javascript/#article-header-id-6
  */
-function hslToRgb({ h, s, l }) {
+function hslToRgb({ h, s, l }: Hsl): Rgb {
   s /= 100
   l /= 100
 
@@ -65,7 +65,7 @@ function hslToRgb({ h, s, l }) {
  * Formula and code from:
  * https://css-tricks.com/converting-color-spaces-in-javascript/#article-header-id-4
  */
-function rgbToHsl({ r, g, b }) {
+function rgbToHsl({ r, g, b }: Rgb): Hsl {
   // Make r, g, and b fractions of 1
   r /= 255
   g /= 255
@@ -100,11 +100,11 @@ function rgbToHsl({ r, g, b }) {
   return { h, s, l }
 }
 
-function rgbToHex({ r, g, b }) {
+function rgbToHex({ r, g, b }: Rgb): string {
   return `${padHex(r)}${padHex(g)}${padHex(b)}`
 }
 
-function padHex(val) {
+function padHex(val: number) {
   return val.toString(16).padStart(2, '0')
 }
 
@@ -112,10 +112,8 @@ function padHex(val) {
  * Formula and code from:
  * https://css-tricks.com/converting-color-spaces-in-javascript/#article-header-id-2
  */
-function hexToRgb(hex) {
-  let r = 0,
-    g = 0,
-    b = 0
+function hexToRgb(hex: string): Rgb {
+  let r: string, g: string, b: string
 
   // 3 digits
   if (hex.length === 3) {
