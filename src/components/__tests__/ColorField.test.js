@@ -90,13 +90,25 @@ describe('ColorField', () => {
 
   test('should not attempt to increment or decrement if it is a HEX field', () => {
     const { getByTestId } = render(
-      <ColorField {...mockProps} value={50} isHex />
+      <ColorField {...mockProps} value="ABABAB" isHex />
     )
 
     const input = getByTestId('color-field')
 
     fireEvent.keyDown(input, ARROW_UP)
     fireEvent.keyDown(input, ARROW_DOWN)
+
+    expect(mockUpdateColor).not.toHaveBeenCalled()
+  })
+
+  test('should not update the color value if attempting to exceed max HEX character count', () => {
+    const { getByTestId } = render(
+      <ColorField {...mockProps} value="ABABAB" isHex />
+    )
+
+    fireEvent.change(getByTestId('color-field'), {
+      target: { value: 'ABABABA' },
+    })
 
     expect(mockUpdateColor).not.toHaveBeenCalled()
   })
