@@ -29,7 +29,7 @@ const ContrastItem = ({ label, subtext, contrast, min }) => (
   <Row css="align-items: center;margin: 8px 0;">
     <LabelContainer>
       <Label>{label}</Label>
-      {subtext && <Subtext>{subtext}</Subtext>}
+      {subtext && <Subtext data-testid="contrast-subtext">{subtext}</Subtext>}
     </LabelContainer>
     <ContrastStatus isPass={contrast >= min} />
   </Row>
