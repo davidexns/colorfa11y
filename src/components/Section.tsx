@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
 const Header = styled.header`
@@ -29,7 +28,7 @@ const HeaderText = styled.h2`
   }
 `
 
-const Section = ({ children, header }) => (
+const Section = ({ children, header }: Props) => (
   <section css="margin-bottom: 32px;">
     <Header>
       <HeaderText>{header}</HeaderText>
@@ -38,8 +37,9 @@ const Section = ({ children, header }) => (
   </section>
 )
 
-Section.propTypes = {
-  header: PropTypes.string.isRequired,
+type Props = {
+  children: ReactNode
+  header: string
 }
 
 export default Section

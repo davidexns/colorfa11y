@@ -1,7 +1,12 @@
 module.exports = {
   clearMocks: true,
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
-  coveragePathIgnorePatterns: ['/node_modules/', 'src/styles/', 'index.js'],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    'src/styles/',
+    'src/ts/',
+    'index.js',
+  ],
   setupFilesAfterEnv: ['<rootDir>/test-utils/setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   testPathIgnorePatterns: ['node_modules', '.cache', 'cypress'],

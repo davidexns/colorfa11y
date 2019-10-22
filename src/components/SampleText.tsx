@@ -1,19 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Container = styled.section`
+const Container = styled.section<{ backgroundColor: string }>`
   padding: 16px;
   background: ${props => props.backgroundColor};
   border: 2px solid var(--preview-border);
   border-radius: 8px;
 `
 
-const Text = styled.p`
+const Text = styled.p<{ color: string }>`
   color: ${props => props.color};
 `
 
-const SampleText = ({ foreground, background }) => {
+const SampleText = ({ foreground, background }: Props) => {
   const foregroundColor = `rgb(${foreground.r}, ${foreground.g}, ${foreground.b})`
 
   return (
@@ -32,17 +31,9 @@ const SampleText = ({ foreground, background }) => {
   )
 }
 
-SampleText.propTypes = {
-  background: PropTypes.shape({
-    b: PropTypes.number,
-    g: PropTypes.number,
-    r: PropTypes.number,
-  }),
-  foreground: PropTypes.shape({
-    b: PropTypes.number,
-    g: PropTypes.number,
-    r: PropTypes.number,
-  }),
+type Props = {
+  background: Rgb
+  foreground: Rgb
 }
 
 export default SampleText

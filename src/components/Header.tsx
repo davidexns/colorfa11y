@@ -67,7 +67,7 @@ const NavLinks = styled.div`
   }
 `
 
-const Header = () => (
+const Header = ({ siteTitle }: Props) => (
   <StyledHeader>
     <Container>
       <SiteTitle>
@@ -77,10 +77,10 @@ const Header = () => (
             color: `white`,
             textDecoration: `none`,
           }}
-          title="Colorfa11y home"
+          title={`${siteTitle} home`}
         >
-          <Logo height="40px" width="123px" aria-hidden="true" />
-          <LogoAlt>Colorfa11y home</LogoAlt>
+          <Logo height="40px" width="123px" aria-hidden="true" alt />
+          <LogoAlt>{siteTitle} home</LogoAlt>
         </Link>
       </SiteTitle>
       <NavLinks>
@@ -102,5 +102,9 @@ const Header = () => (
     </Container>
   </StyledHeader>
 )
+
+type Props = {
+  siteTitle: string
+}
 
 export default Header

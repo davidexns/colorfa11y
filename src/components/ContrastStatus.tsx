@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Container = styled.span`
+const Container = styled.span<{ isPass: boolean }>`
   width: 96px;
   text-align: center;
   padding: 8px 16px;
@@ -17,9 +16,10 @@ const Container = styled.span`
       : 'var(--status-fail-foreground)'};
   font-weight: 700;
   transition: color 150ms ease-in-out, background 150ms ease-in-out;
+  will-change: color, background;
 `
 
-const ContrastStatus = ({ isPass }) => {
+const ContrastStatus = ({ isPass }: Props) => {
   return (
     <Container isPass={isPass} data-testid="contrast-item-status">
       {isPass ? 'PASS' : 'FAIL'}
@@ -27,8 +27,8 @@ const ContrastStatus = ({ isPass }) => {
   )
 }
 
-ContrastStatus.propTypes = {
-  isPass: PropTypes.bool.isRequired,
+type Props = {
+  isPass: boolean
 }
 
 export default ContrastStatus

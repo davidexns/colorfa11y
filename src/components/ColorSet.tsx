@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { FormEvent } from 'react'
 import styled from 'styled-components'
 
 import Row from './Row'
@@ -63,7 +62,7 @@ const InputContainer = styled(Row)`
   margin-bottom: 0;
 `
 
-const ColorSet = props => {
+const ColorSet = (props: Props) => {
   const {
     colors: { h, s, l, r, g, b, hex },
     header,
@@ -72,7 +71,10 @@ const ColorSet = props => {
   } = props
 
   return (
-    <Form onSubmit={e => e.preventDefault()} data-testid={`${header}-form`}>
+    <Form
+      onSubmit={(e: FormEvent) => e.preventDefault()}
+      data-testid={`${header}-form`}
+    >
       <Header>{header}</Header>
       <FieldsetWrapper>
         <Fieldset>
@@ -155,19 +157,19 @@ const ColorSet = props => {
   )
 }
 
-ColorSet.propTypes = {
-  colors: PropTypes.shape({
-    b: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    g: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    h: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    hex: PropTypes.string,
-    l: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    r: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    s: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  }).isRequired,
-  header: PropTypes.string.isRequired,
-  setIdentifier: PropTypes.string.isRequired,
-  updateColor: PropTypes.func.isRequired,
+type Props = {
+  colors: {
+    b: number | string
+    g: number | string
+    h: number | string
+    hex: string
+    l: number | string
+    r: number | string
+    s: number | string
+  }
+  header: string
+  setIdentifier: string
+  updateColor: (key: string, val: number | string) => void
 }
 
 export default ColorSet
