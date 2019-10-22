@@ -1,4 +1,5 @@
-const mediaQuery = breakpoint => `@media (min-width: ${breakpoint}px)`
+const mediaQuery = (breakpoint: number): string =>
+  `@media (min-width: ${breakpoint}px)`
 
 const media = {
   custom: mediaQuery,

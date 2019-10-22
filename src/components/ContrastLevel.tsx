@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import ContrastItem from './ContrastItem'
 
 const Container = styled.div`
@@ -31,8 +31,14 @@ const Content = styled.div`
   padding: 0px 16px 8px;
 `
 
-const ContrastLevel = props => {
-  const { level, contrast, textMin, largeTextMin, graphicalMin } = props
+const ContrastLevel = (props: Props) => {
+  const {
+    level,
+    contrast,
+    textMin = 4.5,
+    largeTextMin = 3.0,
+    graphicalMin = 3.0,
+  } = props
   const isPass = contrast >= Math.max(textMin, largeTextMin, graphicalMin)
 
   return (
@@ -64,18 +70,12 @@ const ContrastLevel = props => {
   )
 }
 
-ContrastLevel.defaultProps = {
-  graphicalMin: 3.0,
-  largeTextMin: 3.0,
-  textMin: 4.5,
-}
-
-ContrastLevel.propTypes = {
-  contrast: PropTypes.number.isRequired,
-  graphicalMin: PropTypes.number,
-  largeTextMin: PropTypes.number,
-  level: PropTypes.string.isRequired,
-  textMin: PropTypes.number,
+type Props = {
+  contrast: number
+  graphicalMin?: number
+  largeTextMin?: number
+  level: string
+  textMin?: number
 }
 
 export default ContrastLevel

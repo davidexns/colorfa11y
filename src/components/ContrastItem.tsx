@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Row from './Row'
@@ -25,7 +24,7 @@ const Subtext = styled.p`
   color: var(--supplemental-text);
 `
 
-const ContrastItem = ({ label, subtext, contrast, min }) => (
+const ContrastItem = ({ label, subtext, contrast, min }: Props) => (
   <Row css="align-items: center;margin: 8px 0;">
     <LabelContainer>
       <Label>{label}</Label>
@@ -35,11 +34,11 @@ const ContrastItem = ({ label, subtext, contrast, min }) => (
   </Row>
 )
 
-ContrastItem.propTypes = {
-  contrast: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  min: PropTypes.number.isRequired,
-  subtext: PropTypes.string,
+type Props = {
+  contrast: number
+  label: string
+  min: number
+  subtext?: string
 }
 
 export default ContrastItem

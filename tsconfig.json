@@ -3,7 +3,9 @@
     "outDir": "./built",
     "allowJs": true,
     "target": "es5",
-    "lib": ["es2017"]
+    "lib": ["dom", "es2017"],
+    "esModuleInterop": true,
+    "jsx": "react"
   },
   "include": ["./src/**/*"]
 }

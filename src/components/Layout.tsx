@@ -17,6 +17,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+declare global {
+  interface Window {
+    __theme: string
+    __onThemeChange: () => void
+    __setPreferredTheme: (newTheme: string) => void
+  }
+}
+
 const ThemeToggle = styled.button`
   position: fixed;
   right: 16px;
