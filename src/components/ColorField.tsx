@@ -49,10 +49,10 @@ type Props = {
   label: string
   max?: number
   min?: number
-  updateColor: (val: number | string) => void
   prefix?: string
   size?: number
   suffix?: string
+  updateColor: (val: number | string) => void
   value: number | string
 }
 
