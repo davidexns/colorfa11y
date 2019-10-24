@@ -145,7 +145,6 @@ const ColorSet = (props: Props) => {
               label="Hex"
               value={hex}
               updateColor={val => updateColor('hex', val)}
-              type="text"
               prefix="#"
               size={8}
               isHex

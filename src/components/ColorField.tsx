@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { KeyboardEvent, ChangeEvent } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -44,41 +43,53 @@ const SupplementalText = styled.span`
   color: var(--input-static-text);
 `
 
-const ColorField = props => {
+type Props = {
+  identifier: string
+  isHex?: boolean
+  label: string
+  max?: number
+  min?: number
+  updateColor: (val: number | string) => void
+  prefix?: string
+  size?: number
+  suffix?: string
+  value: number | string
+}
+
+const ColorField = (props: Props) => {
   const {
     identifier,
     label,
-    value,
+    value = '',
     updateColor,
-    type,
     min,
     max,
     prefix,
     suffix,
-    size,
-    isHex,
+    size = 4,
+    isHex = false,
   } = props
 
-  function handleChange(e) {
-    const newValue = e.target.value
+  function handleChange(e: ChangeEvent) {
+    const newValue = (e.target as HTMLInputElement).value
 
     if (
-      (newValue >= min && newValue <= max) ||
+      (Number(newValue) >= min && Number(newValue) <= max) ||
       (isHex && newValue.length <= 6)
     ) {
       updateColor(newValue)
     }
   }
 
-  function handleKeyDown(e) {
+  function handleKeyDown(e: KeyboardEvent) {
     if (isHex) return
 
     if (e.keyCode === 38 && value < max) {
       e.preventDefault()
-      updateColor(value + 1)
+      updateColor(Number(value) + 1)
     } else if (e.keyCode === 40 && value > min) {
       e.preventDefault()
-      updateColor(value - 1)
+      updateColor(Number(value) - 1)
     }
   }
 
@@ -96,7 +107,6 @@ const ColorField = props => {
       <Input
         id={identifier}
         data-testid="color-field"
-        type={type}
         value={value}
         size={size}
         prefix={prefix}
@@ -114,27 +124,6 @@ const ColorField = props => {
       )}
     </Container>
   )
-}
-
-ColorField.defaultProps = {
-  isHex: false,
-  size: 4,
-  type: 'text',
-  value: '',
-}
-
-ColorField.propTypes = {
-  identifier: PropTypes.string,
-  isHex: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  updateColor: PropTypes.func.isRequired,
-  prefix: PropTypes.string,
-  size: PropTypes.number,
-  suffix: PropTypes.string,
-  type: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 export default ColorField
