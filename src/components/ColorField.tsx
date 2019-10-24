@@ -52,8 +52,8 @@ type Props = {
   prefix?: string
   size?: number
   suffix?: string
-  updateColor: (val: ColorNumberInput) => void
-  value: ColorNumberInput
+  updateColor: (val: ColorFieldInput) => void
+  value: ColorFieldInput
 }
 
 const ColorField = (props: Props) => {
