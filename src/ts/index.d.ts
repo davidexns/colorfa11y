@@ -12,12 +12,4 @@ type Rgb = {
 
 type ColorFieldInput = number | string
 
-type ColorSet = {
-  b: number
-  g: number
-  h: number
-  hex: string
-  l: number
-  r: number
-  s: number
-}
+type ColorSet = Rgb & Hsl & { hex: string }
