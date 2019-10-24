@@ -25,8 +25,13 @@ const StyledH2 = styled.h2`
   border-radius: 12px;
 `
 
+type State = {
+  background: ColorSet
+  foreground: ColorSet
+}
+
 class IndexPage extends Component {
-  state = {
+  state: State = {
     background: {
       h: 0,
       s: 0,
@@ -47,7 +52,7 @@ class IndexPage extends Component {
     },
   }
 
-  updateColors = (key, val, stateKey) => {
+  updateColors = (key: string, val: ColorFieldInput, stateKey: string) => {
     if (val === '') {
       this.setState(prevState => {
         const oldVals = prevState[stateKey]
@@ -89,7 +94,7 @@ class IndexPage extends Component {
         ...argSet,
       }
     } else {
-      const { hsl, rgb } = convertFromHex(val)
+      const { hsl, rgb } = convertFromHex(String(val))
       updatedValues = {
         ...hsl,
         ...rgb,
@@ -100,11 +105,11 @@ class IndexPage extends Component {
     this.setState({ [stateKey]: { ...updatedValues } })
   }
 
-  updateForegroundColors = (key, val) => {
+  updateForegroundColors = (key: string, val: ColorFieldInput) => {
     this.updateColors(key, val, 'foreground')
   }
 
-  updateBackgroundColors = (key, val) => {
+  updateBackgroundColors = (key: string, val: ColorFieldInput) => {
     this.updateColors(key, val, 'background')
   }
 

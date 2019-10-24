@@ -10,4 +10,6 @@ type Rgb = {
   b: number
 }
 
-type ColorNumberInput = number | string
+type ColorFieldInput = number | string
+
+type ColorSet = Rgb & Hsl & { hex: string }

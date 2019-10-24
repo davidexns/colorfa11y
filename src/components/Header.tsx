@@ -79,7 +79,7 @@ const Header = ({ siteTitle }: Props) => (
           }}
           title={`${siteTitle} home`}
         >
-          <Logo height="40px" width="123px" aria-hidden="true" alt />
+          <Logo height="40px" width="123px" aria-hidden="true" />
           <LogoAlt>{siteTitle} home</LogoAlt>
         </Link>
       </SiteTitle>
