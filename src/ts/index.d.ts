@@ -9,3 +9,5 @@ type Rgb = {
   g: number
   b: number
 }
+
+type ColorNumberInput = number | string
