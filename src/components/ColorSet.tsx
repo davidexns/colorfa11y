@@ -158,17 +158,17 @@ const ColorSet = (props: Props) => {
 
 type Props = {
   colors: {
-    b: number | string
-    g: number | string
-    h: number | string
+    b: ColorNumberInput
+    g: ColorNumberInput
+    h: ColorNumberInput
     hex: string
-    l: number | string
-    r: number | string
-    s: number | string
+    l: ColorNumberInput
+    r: ColorNumberInput
+    s: ColorNumberInput
   }
   header: string
   setIdentifier: string
-  updateColor: (key: string, val: number | string) => void
+  updateColor: (key: string, val: ColorNumberInput) => void
 }
 
 export default ColorSet
