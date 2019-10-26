@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,json}",
     "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "jest",
@@ -21,10 +21,10 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts,tsx}": [
       "eslint"
     ],
-    "*.{js,json}": [
+    "*.{js,ts,tsx,json}": [
       "prettier --write",
       "git add"
     ]
@@ -48,6 +48,8 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-plugin-styled-components": "^1.10.6",
@@ -67,8 +69,6 @@
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
-    "tslint": "^5.20.0",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.4"
   },
   "keywords": [

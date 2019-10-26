@@ -8,11 +8,13 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:jest/recommended",
     "plugin:cypress/recommended",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "prettier/@typescript-eslint"
   ],
   "overrides": [
     {
@@ -22,9 +24,9 @@
       }
     }
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2016,
+    "ecmaVersion": 2018,
     "ecmaFeatures": {
       "jsx": true
     },
