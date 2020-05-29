@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 
-const NotFoundPage = () => (
+const NotFoundPage: FunctionComponent = () => (
   <Layout>
     <SEO title="404: Not found" />
     <h2>NOT FOUND</h2>

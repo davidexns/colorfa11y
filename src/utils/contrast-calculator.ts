@@ -2,7 +2,7 @@ function calculateLuminance({ r, g, b }: Rgb): number {
   const multipliers = [0.2126, 0.7152, 0.0722]
   return [r, g, b].reduce((acc: number, cur: number, idx: number) => {
     cur /= 255
-    let srgb =
+    const srgb =
       cur <= 0.03928 ? cur / 12.92 : Math.pow((cur + 0.055) / 1.055, 2.4)
     return acc + srgb * multipliers[idx]
   }, 0)

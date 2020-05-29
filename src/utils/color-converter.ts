@@ -1,14 +1,14 @@
-export function convertFromHsl(hsl: Hsl) {
+export function convertFromHsl(hsl: Hsl): { rgb: Rgb; hex: string } {
   const rgb: Rgb = hslToRgb(hsl)
 
   return { rgb, hex: rgbToHex(rgb) }
 }
 
-export function convertFromRgb(rgb: Rgb) {
+export function convertFromRgb(rgb: Rgb): { hsl: Hsl; hex: string } {
   return { hsl: rgbToHsl(rgb), hex: rgbToHex(rgb) }
 }
 
-export function convertFromHex(hex: string) {
+export function convertFromHex(hex: string): { rgb: Rgb; hsl: Hsl } {
   const rgb = hexToRgb(hex)
 
   return { rgb, hsl: rgbToHsl(rgb) }
@@ -22,10 +22,10 @@ function hslToRgb({ h, s, l }: Hsl): Rgb {
   s /= 100
   l /= 100
 
-  let c = (1 - Math.abs(2 * l - 1)) * s,
-    x = c * (1 - Math.abs(((h / 60) % 2) - 1)),
-    m = l - c / 2,
-    r = 0,
+  const c = (1 - Math.abs(2 * l - 1)) * s
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1))
+  const m = l - c / 2
+  let r = 0,
     g = 0,
     b = 0
 
@@ -72,10 +72,10 @@ function rgbToHsl({ r, g, b }: Rgb): Hsl {
   b /= 255
 
   // Find greatest and smallest channel values
-  let cmin = Math.min(r, g, b),
-    cmax = Math.max(r, g, b),
-    delta = cmax - cmin,
-    h = 0,
+  const cmin = Math.min(r, g, b)
+  const cmax = Math.max(r, g, b)
+  const delta = cmax - cmin
+  let h = 0,
     s = 0,
     l = 0
 

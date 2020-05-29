@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 const Header = styled.header`
@@ -28,7 +28,12 @@ const HeaderText = styled.h2`
   }
 `
 
-const Section = ({ children, header }: Props) => (
+type Props = {
+  children: ReactNode
+  header: string
+}
+
+const Section: FunctionComponent<Props> = ({ children, header }: Props) => (
   <section css="margin-bottom: 32px;">
     <Header>
       <HeaderText>{header}</HeaderText>
@@ -36,10 +41,5 @@ const Section = ({ children, header }: Props) => (
     {children}
   </section>
 )
-
-type Props = {
-  children: ReactNode
-  header: string
-}
 
 export default Section

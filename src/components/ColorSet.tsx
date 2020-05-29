@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React, { FormEvent, FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 import Row from './Row'
@@ -62,7 +62,14 @@ const InputContainer = styled(Row)`
   margin-bottom: 0;
 `
 
-const ColorSet = (props: Props) => {
+type Props = {
+  colors: ColorSet
+  header: string
+  setIdentifier: string
+  updateColor: (key: string, val: ColorFieldInput) => void
+}
+
+const ColorSet: FunctionComponent<Props> = (props: Props) => {
   const {
     colors: { h, s, l, r, g, b, hex },
     header,
@@ -86,7 +93,7 @@ const ColorSet = (props: Props) => {
               value={h}
               min={0}
               max={360}
-              updateColor={val => updateColor('h', val)}
+              updateColor={(val): void => updateColor('h', val)}
             />
             <ColorField
               identifier={`${setIdentifier}-saturation`}
@@ -95,7 +102,7 @@ const ColorSet = (props: Props) => {
               max={100}
               value={s}
               suffix="%"
-              updateColor={val => updateColor('s', val)}
+              updateColor={(val): void => updateColor('s', val)}
             />
             <ColorField
               identifier={`${setIdentifier}-lightness`}
@@ -104,7 +111,7 @@ const ColorSet = (props: Props) => {
               max={100}
               value={l}
               suffix="%"
-              updateColor={val => updateColor('l', val)}
+              updateColor={(val): void => updateColor('l', val)}
             />
           </InputContainer>
         </Fieldset>
@@ -117,7 +124,7 @@ const ColorSet = (props: Props) => {
               min={0}
               max={255}
               value={r}
-              updateColor={val => updateColor('r', val)}
+              updateColor={(val): void => updateColor('r', val)}
             />
             <ColorField
               identifier={`${setIdentifier}-green`}
@@ -125,7 +132,7 @@ const ColorSet = (props: Props) => {
               min={0}
               max={255}
               value={g}
-              updateColor={val => updateColor('g', val)}
+              updateColor={(val): void => updateColor('g', val)}
             />
             <ColorField
               identifier={`${setIdentifier}-blue`}
@@ -133,7 +140,7 @@ const ColorSet = (props: Props) => {
               min={0}
               max={255}
               value={b}
-              updateColor={val => updateColor('b', val)}
+              updateColor={(val): void => updateColor('b', val)}
             />
           </InputContainer>
         </Fieldset>
@@ -144,7 +151,7 @@ const ColorSet = (props: Props) => {
               identifier={`${setIdentifier}-hex`}
               label="Hex"
               value={hex}
-              updateColor={val => updateColor('hex', val)}
+              updateColor={(val): void => updateColor('hex', val)}
               prefix="#"
               size={8}
               isHex
@@ -154,13 +161,6 @@ const ColorSet = (props: Props) => {
       </FieldsetWrapper>
     </Form>
   )
-}
-
-type Props = {
-  colors: ColorSet
-  header: string
-  setIdentifier: string
-  updateColor: (key: string, val: ColorFieldInput) => void
 }
 
 export default ColorSet

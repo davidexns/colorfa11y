@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
@@ -67,7 +67,11 @@ const NavLinks = styled.div`
   }
 `
 
-const Header = ({ siteTitle }: Props) => (
+type Props = {
+  siteTitle: string
+}
+
+const Header: FunctionComponent<Props> = ({ siteTitle }: Props) => (
   <StyledHeader>
     <Container>
       <SiteTitle>
@@ -102,9 +106,5 @@ const Header = ({ siteTitle }: Props) => (
     </Container>
   </StyledHeader>
 )
-
-type Props = {
-  siteTitle: string
-}
 
 export default Header

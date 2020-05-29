@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import Section from '../components/Section'
 
-const AboutPage = () => (
+const AboutPage: FunctionComponent = () => (
   <Layout>
     <SEO title="About" />
     <Section header="About Colorfa11y">

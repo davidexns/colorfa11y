@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.section<{ backgroundColor: string }>`
@@ -12,7 +12,13 @@ const Text = styled.p<{ color: string }>`
   color: ${props => props.color};
 `
 
-const SampleText = ({ foreground, background }: Props) => {
+type Props = {
+  background: Rgb
+  foreground: Rgb
+}
+
+const SampleText: FunctionComponent<Props> = (props: Props) => {
+  const { foreground, background } = props
   const foregroundColor = `rgb(${foreground.r}, ${foreground.g}, ${foreground.b})`
 
   return (
@@ -29,11 +35,6 @@ const SampleText = ({ foreground, background }: Props) => {
       {/* TODO: graphical components */}
     </Container>
   )
-}
-
-type Props = {
-  background: Rgb
-  foreground: Rgb
 }
 
 export default SampleText

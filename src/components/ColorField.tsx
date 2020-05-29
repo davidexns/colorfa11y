@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, ChangeEvent } from 'react'
+import React, { KeyboardEvent, ChangeEvent, ReactElement } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -56,7 +56,7 @@ type Props = {
   value: ColorFieldInput
 }
 
-const ColorField = (props: Props) => {
+function ColorField(props: Props): ReactElement {
   const {
     identifier,
     label,
@@ -70,7 +70,7 @@ const ColorField = (props: Props) => {
     isHex = false,
   } = props
 
-  function handleChange(e: ChangeEvent) {
+  function handleChange(e: ChangeEvent): void {
     const newValue = (e.target as HTMLInputElement).value
 
     if (
@@ -81,7 +81,7 @@ const ColorField = (props: Props) => {
     }
   }
 
-  function handleKeyDown(e: KeyboardEvent) {
+  function handleKeyDown(e: KeyboardEvent): void {
     if (isHex) return
 
     if (e.keyCode === 38 && value < max) {

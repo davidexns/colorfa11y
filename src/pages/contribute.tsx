@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import Section from '../components/Section'
 
-const ContributePage = () => (
+const ContributePage: FunctionComponent = () => (
   <Layout>
     <SEO title="Contribute" />
     <Section header="How to contribute to Colorfa11y">

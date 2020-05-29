@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.span<{ isPass: boolean }>`
@@ -19,16 +19,16 @@ const Container = styled.span<{ isPass: boolean }>`
   will-change: color, background;
 `
 
-const ContrastStatus = ({ isPass }: Props) => {
+type Props = {
+  isPass: boolean
+}
+
+const ContrastStatus: FunctionComponent<Props> = ({ isPass }: Props) => {
   return (
     <Container isPass={isPass} data-testid="contrast-item-status">
       {isPass ? 'PASS' : 'FAIL'}
     </Container>
   )
-}
-
-type Props = {
-  isPass: boolean
 }
 
 export default ContrastStatus

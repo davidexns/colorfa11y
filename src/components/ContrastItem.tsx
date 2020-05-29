@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 import Row from './Row'
@@ -24,21 +24,25 @@ const Subtext = styled.p`
   color: var(--supplemental-text);
 `
 
-const ContrastItem = ({ label, subtext, contrast, min }: Props) => (
-  <Row css="align-items: center;margin: 8px 0;">
-    <LabelContainer>
-      <Label>{label}</Label>
-      {subtext && <Subtext data-testid="contrast-subtext">{subtext}</Subtext>}
-    </LabelContainer>
-    <ContrastStatus isPass={contrast >= min} />
-  </Row>
-)
-
 type Props = {
   contrast: number
   label: string
   min: number
   subtext?: string
+}
+
+const ContrastItem: FunctionComponent<Props> = (props: Props) => {
+  const { label, subtext, contrast, min } = props
+
+  return (
+    <Row css="align-items: center;margin: 8px 0;" data-testid="contrast-item">
+      <LabelContainer>
+        <Label>{label}</Label>
+        {subtext && <Subtext data-testid="contrast-subtext">{subtext}</Subtext>}
+      </LabelContainer>
+      <ContrastStatus isPass={contrast >= min} />
+    </Row>
+  )
 }
 
 export default ContrastItem

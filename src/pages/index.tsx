@@ -52,7 +52,11 @@ class IndexPage extends Component {
     },
   }
 
-  updateColors = (key: string, val: ColorFieldInput, stateKey: string) => {
+  updateColors = (
+    key: string,
+    val: ColorFieldInput,
+    stateKey: string
+  ): void => {
     if (val === '') {
       this.setState(prevState => {
         const oldVals = prevState[stateKey]
@@ -105,11 +109,11 @@ class IndexPage extends Component {
     this.setState({ [stateKey]: { ...updatedValues } })
   }
 
-  updateForegroundColors = (key: string, val: ColorFieldInput) => {
+  updateForegroundColors = (key: string, val: ColorFieldInput): void => {
     this.updateColors(key, val, 'foreground')
   }
 
-  updateBackgroundColors = (key: string, val: ColorFieldInput) => {
+  updateBackgroundColors = (key: string, val: ColorFieldInput): void => {
     this.updateColors(key, val, 'background')
   }
 
