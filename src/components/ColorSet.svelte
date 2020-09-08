@@ -45,7 +45,7 @@
 	}
 </style>
 
-<form on:submit={(e) => e.preventDefault()} data-testid={`${header}-form`}>
+<form on:submit|preventDefault data-testid={`${header}-form`}>
 	<h3>{header}</h3>
 	<div class="wrapper">
 		<ColorFieldset title="HSL">
