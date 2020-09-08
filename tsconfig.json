@@ -1,11 +1,6 @@
 {
-  "compilerOptions": {
-    "outDir": "./built",
-    "allowJs": true,
-    "target": "es5",
-    "lib": ["dom", "es2017"],
-    "esModuleInterop": true,
-    "jsx": "react"
-  },
-  "include": ["./src/**/*"]
+	"extends": "@tsconfig/svelte/tsconfig.json",
+
+	"include": ["src/**/*", "src/node_modules"],
+	"exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
