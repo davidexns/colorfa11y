@@ -4,9 +4,10 @@
 
 ## TODO
 
+- [ ] Confirm hex characters entered are valid
+- [ ] Notify user when they have entered an invalid hex value length
 - [ ] Example graphical objects in the Preview section
 - [ ] Add ability to copy specific colors to clipboard
-- [ ] Convert to TypeScript
 - [ ] Convert about & contribute page content to MDX?
 
 ## Helpful Resources

@@ -70,3 +70,9 @@ yarn-error.log
 
 # Cypress
 cypress/videos
+cypress/screenshots/
+
+# Sapper
+src/node_modules/@sapper/
+__sapper__/
+dev
