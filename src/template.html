@@ -29,9 +29,6 @@
 		%sapper.head%
 	</head>
 	<body>
-		<!-- The application will be rendered inside this element,
-	     because `src/client.js` references it -->
-		<div id="sapper">%sapper.html%</div>
 		<script>
 			;(function () {
 				function setTheme(newTheme) {
@@ -56,5 +53,8 @@
 				setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 			})()
 		</script>
+		<!-- The application will be rendered inside this element,
+         because `src/client.js` references it -->
+		<div id="sapper">%sapper.html%</div>
 	</body>
 </html>
