@@ -128,7 +128,7 @@ describe('ColorField', () => {
 			isHex: true,
 		})
 
-		fireEvent.change(getByTestId('color-field'), {
+		fireEvent.input(getByTestId('color-field'), {
 			target: { value: 'ABABABA' },
 		})
 

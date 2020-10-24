@@ -34,6 +34,31 @@
 	export let isHex: boolean = false
 </script>
 
+<div class="container">
+	<label for={identifier}>{label}</label>
+	{#if prefix}
+		<span
+			class="supplemental-text prefix"
+			data-testid="color-prefix"
+		>{prefix}</span>
+	{/if}
+	<input
+		type="text"
+		id={identifier}
+		data-testid="color-field"
+		{value}
+		{size}
+		on:input={handleChange}
+		on:keydown={handleKeyDown}
+	/>
+	{#if suffix}
+		<span
+			class="supplemental-text suffix"
+			data-testid="color-suffix"
+		>{suffix}</span>
+	{/if}
+</div>
+
 <style>
 	.container {
 		position: relative;
@@ -88,28 +113,3 @@
 		right: 8px;
 	}
 </style>
-
-<div class="container">
-	<label for={identifier}>{label}</label>
-	{#if prefix}
-		<span
-			class="supplemental-text prefix"
-			data-testid="color-prefix"
-		>{prefix}</span>
-	{/if}
-	<input
-		type="text"
-		id={identifier}
-		data-testid="color-field"
-		{value}
-		{size}
-		on:input={handleChange}
-		on:keydown={handleKeyDown}
-	/>
-	{#if suffix}
-		<span
-			class="supplemental-text suffix"
-			data-testid="color-suffix"
-		>{suffix}</span>
-	{/if}
-</div>

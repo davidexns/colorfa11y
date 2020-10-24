@@ -4,6 +4,26 @@
 	export let segment
 </script>
 
+<nav>
+	<header>
+		<h1>
+			<a href=".">
+				<Logo height="40px" width="123px" aria-hidden="true" />
+				<span class="alt">Colorfa11y home</span></a>
+		</h1>
+		<div class="navlinks">
+			<a
+				aria-current={segment === 'about' ? 'page' : undefined}
+				href="about"
+			>About</a>
+			<a
+				aria-current={segment === 'contribute' ? 'page' : undefined}
+				href="contribute"
+			>Contribute</a>
+		</div>
+	</header>
+</nav>
+
 <style>
 	nav {
 		height: 50px;
@@ -73,23 +93,3 @@
 		}
 	}
 </style>
-
-<nav>
-	<header>
-		<h1>
-			<a href=".">
-				<Logo height="40px" width="123px" aria-hidden="true" />
-				<span class="alt">Colorfa11y home</span></a>
-		</h1>
-		<div class="navlinks">
-			<a
-				aria-current={segment === 'about' ? 'page' : undefined}
-				href="about"
-			>About</a>
-			<a
-				aria-current={segment === 'contribute' ? 'page' : undefined}
-				href="contribute"
-			>Contribute</a>
-		</div>
-	</header>
-</nav>

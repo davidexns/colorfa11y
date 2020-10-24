@@ -30,7 +30,14 @@
 			"env": {
 				"jest/globals": true
 			},
-			"extends": ["plugin:jest/recommended"]
+			"extends": [
+				"plugin:jest/recommended",
+				"plugin:jest-dom/recommended",
+				"plugin:testing-library/recommended"
+			],
+			"rules": {
+				"testing-library/prefer-presence-queries": ["error"]
+			}
 		},
 		{
 			"files": ["cypress/**/*"],
