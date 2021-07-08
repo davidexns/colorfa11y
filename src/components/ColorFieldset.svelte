@@ -2,6 +2,13 @@
 	export let title: string
 </script>
 
+<fieldset>
+	<legend>{title}</legend>
+	<div class="input-container">
+		<slot />
+	</div>
+</fieldset>
+
 <style>
 	fieldset {
 		display: inline-block;
@@ -31,10 +38,3 @@
 		margin-bottom: 0;
 	}
 </style>
-
-<fieldset>
-	<legend>{title}</legend>
-	<div class="input-container">
-		<slot />
-	</div>
-</fieldset>

@@ -17,6 +17,16 @@
 	export let segment
 </script>
 
+<Nav {segment} />
+
+<main>
+	<slot />
+</main>
+
+<button class="theme-toggle" on:click={toggleTheme}>
+	Go {selectedTheme === 'dark' ? 'Light' : 'Dark'}
+</button>
+
 <style>
 	main {
 		position: relative;
@@ -39,13 +49,3 @@
 		border-radius: 4px;
 	}
 </style>
-
-<Nav {segment} />
-
-<main>
-	<slot />
-</main>
-
-<button class="theme-toggle" on:click={toggleTheme}>
-	Go {selectedTheme === 'dark' ? 'Light' : 'Dark'}
-</button>
