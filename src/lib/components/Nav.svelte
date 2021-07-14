@@ -1,5 +1,5 @@
 <script>
-	import Logo from '../assets/colorfa11y-logo.svg'
+	import Logo from '$lib/components/Logo.svelte'
 
 	export let segment
 </script>
@@ -7,24 +7,22 @@
 <nav>
 	<header>
 		<h1>
-			<a href=".">
-				<Logo height="40px" width="123px" aria-hidden="true" />
-				<span class="alt">Colorfa11y home</span></a>
+			<a href="."
+				><Logo height="40px" width="123px" aria-hidden="true" /><span class="alt"
+					>Colorfa11y home</span
+				></a
+			>
 		</h1>
 		<div class="navlinks">
-			<a
-				aria-current={segment === 'about' ? 'page' : undefined}
-				href="about"
-			>About</a>
-			<a
-				aria-current={segment === 'contribute' ? 'page' : undefined}
-				href="contribute"
-			>Contribute</a>
+			<a aria-current={segment === 'about' ? 'page' : undefined} href="about">About</a>
+			<a aria-current={segment === 'contribute' ? 'page' : undefined} href="contribute"
+				>Contribute</a
+			>
 		</div>
 	</header>
 </nav>
 
-<style>
+<style lang="scss">
 	nav {
 		height: 50px;
 		background: var(--header-background);

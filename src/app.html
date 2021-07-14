@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="A simple web utility to easily convert between HEX, RGB, and HSL colors and determine WCAG color contrast ratio"
+		/>
+		%svelte.head%
+	</head>
+	<body>
+		<script>
+			(function () {
+				function setTheme(newTheme) {
+					window.__theme = newTheme;
+					preferredTheme = newTheme;
+					document.body.className = newTheme;
+				}
+				var preferredTheme;
+				try {
+					preferredTheme = localStorage.getItem('theme');
+				} catch (err) {}
+				window.__setPreferredTheme = function (newTheme) {
+					setTheme(newTheme);
+					try {
+						localStorage.setItem('theme', newTheme);
+					} catch (err) {}
+				};
+				var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+				darkQuery.addListener(function (e) {
+					window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+				});
+				setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+			})();
+		</script>
+		<div id="svelte">%svelte.body%</div>
+	</body>
+</html>

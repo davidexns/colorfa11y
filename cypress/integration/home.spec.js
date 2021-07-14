@@ -1,6 +1,7 @@
 describe('Given I am on the home page', () => {
 	beforeEach(() => {
 		cy.visit('/')
+		cy.wait(500) // TODO: Wait more explicitly
 	})
 
 	describe('when I change the foreground HSL color', () => {
