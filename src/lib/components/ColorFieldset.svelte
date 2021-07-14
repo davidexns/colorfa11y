@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let title: string
+	export let title: string;
 </script>
 
 <fieldset>
@@ -9,16 +9,16 @@
 	</div>
 </fieldset>
 
-<style>
+<style lang="scss">
 	fieldset {
 		display: inline-block;
 		border: none;
 		border-top: 1px solid var(--kebab-border);
 		margin-bottom: 0;
-	}
 
-	fieldset:not(:last-child) {
-		margin-right: 16px;
+		&:not(:last-child) {
+			margin-right: 16px;
+		}
 	}
 
 	legend {

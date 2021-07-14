@@ -1,4 +1,5 @@
-import { render, fireEvent } from '@testing-library/svelte'
+import { render, screen, fireEvent } from '@testing-library/svelte'
+import userEvent from '@testing-library/user-event'
 
 import ColorField from '../ColorField'
 
@@ -20,14 +21,14 @@ describe('ColorField', () => {
 	}
 
 	it('should update color if new value is within the min/max range', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 50,
 			min: 0,
 			max: 100,
 		})
 
-		fireEvent.input(getByTestId('color-field'), {
+		fireEvent.input(screen.getByRole('textbox'), {
 			target: { value: '52' },
 		})
 
@@ -35,100 +36,100 @@ describe('ColorField', () => {
 	})
 
 	it('should not update color if new value is larger than the max', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 50,
 			min: 0,
 			max: 100,
 		})
 
-		fireEvent.input(getByTestId('color-field'), { target: { value: '103' } })
+		fireEvent.input(screen.getByRole('textbox'), { target: { value: '103' } })
 
 		expect(mockUpdateColor).not.toHaveBeenCalled()
 	})
 
 	it('should not update color if new value is smaller than the min', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 50,
 			min: 0,
 			max: 100,
 		})
 
-		fireEvent.input(getByTestId('color-field'), { target: { value: '-5' } })
+		fireEvent.input(screen.getByRole('textbox'), { target: { value: '-5' } })
 
 		expect(mockUpdateColor).not.toHaveBeenCalled()
 	})
 
 	it('should increment by one when up arrow key is pressed', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 50,
 		})
 
-		fireEvent.keyDown(getByTestId('color-field'), ARROW_UP)
+		userEvent.type(screen.getByRole('textbox'), '{arrowup}')
 
 		expect(mockUpdateColor).toHaveBeenCalledWith(51)
 	})
 
 	it('should decrement by one when up arrow key is pressed', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 50,
 		})
 
-		fireEvent.keyDown(getByTestId('color-field'), ARROW_DOWN)
+		userEvent.type(screen.getByRole('textbox'), '{arrowdown}')
 
 		expect(mockUpdateColor).toHaveBeenCalledWith(49)
 	})
 
 	it('should not increment beyond max value when up arrow is pressed', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 100,
 			max: 100,
 		})
 
-		fireEvent.keyDown(getByTestId('color-field'), ARROW_UP)
+		userEvent.type(screen.getByRole('textbox'), '{arrowup}')
 
 		expect(mockUpdateColor).not.toHaveBeenCalled()
 	})
 
 	it('should not decrement below min value when down arrow is pressed', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 10,
 			min: 10,
 		})
 
-		fireEvent.keyDown(getByTestId('color-field'), ARROW_DOWN)
+		userEvent.type(screen.getByRole('textbox'), '{arrowdown}')
 
 		expect(mockUpdateColor).not.toHaveBeenCalled()
 	})
 
 	it('should not attempt to increment or decrement if it is a HEX field', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 'ABABAB',
 			isHex: true,
 		})
 
-		const input = getByTestId('color-field')
+		const input = screen.getByRole('textbox')
 
-		fireEvent.keyDown(input, ARROW_UP)
-		fireEvent.keyDown(input, ARROW_DOWN)
+		userEvent.type(input, '{arrowup}')
+		userEvent.type(input, '{arrowdown}')
 
 		expect(mockUpdateColor).not.toHaveBeenCalled()
 	})
 
 	it('should not update the color value if attempting to exceed max HEX character count', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			value: 'ABABAB',
 			isHex: true,
 		})
 
-		fireEvent.input(getByTestId('color-field'), {
+		fireEvent.input(screen.getByRole('textbox'), {
 			target: { value: 'ABABABA' },
 		})
 
@@ -136,29 +137,29 @@ describe('ColorField', () => {
 	})
 
 	it('should render a prefix if one is provided', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			prefix: '#',
 			value: 'FFFFFF',
 		})
 
-		expect(getByTestId('color-prefix')).toHaveTextContent('#')
+		expect(screen.getByTestId('color-prefix')).toHaveTextContent('#')
 	})
 
 	it('should render a suffix if one is provided', () => {
-		const { getByTestId } = render(ColorField, {
+		render(ColorField, {
 			...mockProps,
 			suffix: '%',
 			value: 50,
 		})
 
-		expect(getByTestId('color-suffix')).toHaveTextContent('%')
+		expect(screen.getByTestId('color-suffix')).toHaveTextContent('%')
 	})
 
 	it('should not render prefix or suffix elements if none are provided', () => {
-		const { queryByTestId } = render(ColorField, { ...mockProps })
+		render(ColorField, { ...mockProps })
 
-		expect(queryByTestId('color-prefix')).toBeNull()
-		expect(queryByTestId('color-suffix')).toBeNull()
+		expect(screen.queryByTestId('color-prefix')).toBeNull()
+		expect(screen.queryByTestId('color-suffix')).toBeNull()
 	})
 })

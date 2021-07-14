@@ -1,49 +1,14 @@
 <script lang="ts">
-	import ColorField from './ColorField.svelte'
-	import ColorFieldset from './ColorFieldset.svelte'
+	import ColorField from './ColorField.svelte';
+	import ColorFieldset from './ColorFieldset.svelte';
 
-	export let header: string
-	export let colors: ColorSetType
-	export let updateColor: (key: string, val: ColorFieldInput) => void
-	export let setIdentifier: string
+	export let header: string;
+	export let colors: ColorSetType;
+	export let updateColor: (key: string, val: ColorFieldInput) => void;
+	export let setIdentifier: string;
 
-	$: ({ h, s, l, r, g, b, hex } = colors)
+	$: ({ h, s, l, r, g, b, hex } = colors);
 </script>
-
-<style>
-	form {
-		display: flex;
-		flex-direction: column;
-	}
-
-	form:not(:last-child) {
-		margin-bottom: 1.45rem;
-	}
-
-	h3 {
-		display: inline-block;
-		margin-bottom: 0;
-		margin-right: auto;
-		margin-bottom: 16px;
-	}
-
-	.wrapper {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	@media only screen and (min-width: 1024px) {
-		form {
-			flex-direction: row;
-			align-items: center;
-		}
-
-		h3 {
-			margin-bottom: 0;
-			margin-top: 1.45rem;
-		}
-	}
-</style>
 
 <form on:submit|preventDefault data-testid={`${header}-form`}>
 	<h3>{header}</h3>
@@ -117,3 +82,38 @@
 		</ColorFieldset>
 	</div>
 </form>
+
+<style lang="scss">
+	form {
+		display: flex;
+		flex-direction: column;
+
+		&:not(:last-child) {
+			margin-bottom: 1.45rem;
+		}
+	}
+
+	h3 {
+		display: inline-block;
+		margin-bottom: 0;
+		margin-right: auto;
+		margin-bottom: 16px;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		form {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		h3 {
+			margin-bottom: 0;
+			margin-top: 1.45rem;
+		}
+	}
+</style>
