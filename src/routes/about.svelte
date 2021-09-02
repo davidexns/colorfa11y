@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Section from '$lib/components/Section.svelte';
-	import SEO from '$lib/components/SEO.svelte';
+	import Section from '$lib/components/Section.svelte'
+	import SEO from '$lib/components/SEO.svelte'
 </script>
 
 <SEO title="About" />
@@ -18,7 +18,7 @@
 	<h3>How did I build this?</h3>
 
 	<p>
-		This site was build using Svelte and Sapper. Inspiration and some of the code for the color
+		This site was build using Svelte Kit. Inspiration and some of the code for the color
 		calculations was derived from <a
 			href="https://css-tricks.com/converting-color-spaces-in-javascript/">this article</a
 		>
@@ -29,12 +29,12 @@
 		<a href="https://github.com/davidexns/colorfa11y">GitHub</a>.
 	</p>
 
-	<h3>Why on earth did I use Sapper for this?</h3>
+	<h3>Why on earth did I use Svelte Kit for this?</h3>
 
 	<p>
-		Sapper (and Svelte, for that matter) was most definitely overkill. As was Gatsby in my previous
-		version. In short, I needed an excuse to play around with Sveltte & Sapper in general, and this
-		was a very simple way to dip my toe in those waters. I even considered building this with Svelte
+		Svelte Kit was most definitely overkill. As were Gatsby and Sapper in my previous versions. In
+		short, I needed an excuse to play around with Svelte & Svelte Kit in general, and this was a
+		very simple way to dip my toe in those waters. I even considered building this with Svelte
 		originally back in 2019, but opted for React/Gatsby for the sake of familiarity.
 	</p>
 </Section>
