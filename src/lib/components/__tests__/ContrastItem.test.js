@@ -24,7 +24,7 @@ describe('ContrastItem', () => {
 		})
 
 		expect(screen.getByText(/pass/i)).toBeInTheDocument()
-		expect(screen.queryByText(/fail/i)).toBeNull()
+		expect(screen.queryByText(/fail/i)).not.toBeInTheDocument()
 	})
 
 	it('should show a FAIL status if the contrast does not meet the minimum', () => {
@@ -36,7 +36,7 @@ describe('ContrastItem', () => {
 		})
 
 		expect(screen.getByText(/fail/i)).toBeInTheDocument()
-		expect(screen.queryByText(/pass/i)).toBeNull()
+		expect(screen.queryByText(/pass/i)).not.toBeInTheDocument()
 	})
 
 	it('should show a PASS status if the contrast is equal to the minimum', () => {
@@ -48,7 +48,7 @@ describe('ContrastItem', () => {
 		})
 
 		expect(screen.getByText(/pass/i)).toBeInTheDocument()
-		expect(screen.queryByText(/fail/i)).toBeNull()
+		expect(screen.queryByText(/fail/i)).not.toBeInTheDocument()
 	})
 
 	it('should not render a subtext element if no subtext is provided', () => {
@@ -58,6 +58,6 @@ describe('ContrastItem', () => {
 			min: 4,
 		})
 
-		expect(screen.queryByTestId('contrast-subtext')).toBeNull()
+		expect(screen.queryByTestId('contrast-subtext')).not.toBeInTheDocument()
 	})
 })

@@ -1,6 +1,6 @@
 <script>
-	import Section from '$lib/components/Section.svelte';
-	import SEO from '$lib/components/SEO.svelte';
+	import Section from '$lib/components/Section.svelte'
+	import SEO from '$lib/components/SEO.svelte'
 </script>
 
 <SEO title="Contribute" />

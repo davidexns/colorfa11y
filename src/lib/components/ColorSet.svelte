@@ -1,13 +1,13 @@
 <script lang="ts">
-	import ColorField from './ColorField.svelte';
-	import ColorFieldset from './ColorFieldset.svelte';
+	import ColorField from './ColorField.svelte'
+	import ColorFieldset from './ColorFieldset.svelte'
 
-	export let header: string;
-	export let colors: ColorSetType;
-	export let updateColor: (key: string, val: ColorFieldInput) => void;
-	export let setIdentifier: string;
+	export let header: string
+	export let colors: ColorSetType
+	export let updateColor: (key: string, val: ColorFieldInput) => void
+	export let setIdentifier: string
 
-	$: ({ h, s, l, r, g, b, hex } = colors);
+	$: ({ h, s, l, r, g, b, hex } = colors)
 </script>
 
 <form on:submit|preventDefault data-testid={`${header}-form`}>
@@ -83,14 +83,14 @@
 	</div>
 </form>
 
-<style lang="scss">
+<style>
 	form {
 		display: flex;
 		flex-direction: column;
+	}
 
-		&:not(:last-child) {
-			margin-bottom: 1.45rem;
-		}
+	form:not(:last-child) {
+		margin-bottom: 1.45rem;
 	}
 
 	h3 {

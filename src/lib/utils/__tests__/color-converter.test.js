@@ -1,8 +1,4 @@
-import {
-	convertFromHsl,
-	convertFromRgb,
-	convertFromHex,
-} from '../color-converter'
+import { convertFromHsl, convertFromRgb, convertFromHex } from '../color-converter'
 
 describe('color-converter util', () => {
 	describe('convertFromHsl', () => {

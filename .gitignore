@@ -74,5 +74,8 @@ cypress/screenshots/
 
 # Svelte Kit
 /.svelte
+/.svelte-kit
 /build
 /functions
+
+.netlify

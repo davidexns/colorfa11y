@@ -1,21 +1,21 @@
 <script>
-	import { onMount } from 'svelte';
-	import Nav from '$lib/components/Nav.svelte';
-	import '../app.scss';
+	import { onMount } from 'svelte'
+	import Nav from '$lib/components/Nav.svelte'
+	import '../app.scss'
 
-	let selectedTheme = 'light';
+	let selectedTheme = 'light'
 
 	onMount(() => {
-		selectedTheme = window.__theme || 'light';
-	});
+		selectedTheme = window.__theme || 'light'
+	})
 
 	function toggleTheme() {
-		const newTheme = window.__theme === 'light' ? 'dark' : 'light';
-		window.__setPreferredTheme(newTheme);
-		selectedTheme = newTheme;
+		const newTheme = window.__theme === 'light' ? 'dark' : 'light'
+		window.__setPreferredTheme(newTheme)
+		selectedTheme = newTheme
 	}
 
-	export let segment;
+	export let segment
 </script>
 
 <Nav {segment} />

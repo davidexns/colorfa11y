@@ -1,11 +1,11 @@
 <script lang="ts">
-	import ContrastItem from './ContrastItem.svelte';
+	import ContrastItem from './ContrastItem.svelte'
 
-	export let contrast: number;
-	export let graphicalMin: number = 3.0;
-	export let largeTextMin: number = 3.0;
-	export let level: string;
-	export let textMin: number = 4.5;
+	export let contrast: number
+	export let graphicalMin: number = 3.0
+	export let largeTextMin: number = 3.0
+	export let level: string
+	export let textMin: number = 4.5
 </script>
 
 <section data-testid={`${level}-compliance`}>
