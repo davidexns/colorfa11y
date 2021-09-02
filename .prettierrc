@@ -6,5 +6,5 @@
 	"useTabs": true,
 	"trailingComma": "es5",
 	"svelteBracketNewLine": true,
-	"svelteSortOrder": "scripts-markup-styles"
+	"svelteSortOrder": "options-scripts-markup-styles"
 }

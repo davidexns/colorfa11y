@@ -1,10 +1,10 @@
 <script lang="ts">
-	import ColorSet from '$lib/components/ColorSet.svelte';
-	import ContrastLevel from '$lib/components/ContrastLevel.svelte';
-	import Section from '$lib/components/Section.svelte';
-	import SEO from '$lib/components/SEO.svelte';
-	import { convertFromHex, convertFromHsl, convertFromRgb } from '$lib/utils/color-converter';
-	import { calculateContrast } from '$lib/utils/contrast-calculator';
+	import ColorSet from '$lib/components/ColorSet.svelte'
+	import ContrastLevel from '$lib/components/ContrastLevel.svelte'
+	import Section from '$lib/components/Section.svelte'
+	import SEO from '$lib/components/SEO.svelte'
+	import { convertFromHex, convertFromHsl, convertFromRgb } from '$lib/utils/color-converter'
+	import { calculateContrast } from '$lib/utils/contrast-calculator'
 
 	let background: ColorSetType = {
 		h: 0,
@@ -13,8 +13,8 @@
 		r: 255,
 		g: 255,
 		b: 255,
-		hex: 'FFFFFF'
-	};
+		hex: 'FFFFFF',
+	}
 	let foreground: ColorSetType = {
 		h: 0,
 		s: 0,
@@ -22,53 +22,53 @@
 		r: 0,
 		g: 0,
 		b: 0,
-		hex: '000000'
-	};
+		hex: '000000',
+	}
 
-	let contrast: number;
-	$: contrast = calculateContrast(foreground, background);
+	let contrast: number
+	$: contrast = calculateContrast(foreground, background)
 
 	function getUpdatedColors(key: string, val: ColorFieldInput, obj: ColorSetType): ColorSetType {
 		if (val === '') {
-			obj[key] = val;
-			return obj;
+			obj[key] = val
+			return obj
 		}
 
 		switch (key) {
 			case 'h':
 			case 's':
 			case 'l': {
-				obj[key] = Number(val);
-				const { h, s, l } = obj;
-				const { rgb, hex } = convertFromHsl({ h, s, l });
-				return { ...obj, ...rgb, hex };
+				obj[key] = Number(val)
+				const { h, s, l } = obj
+				const { rgb, hex } = convertFromHsl({ h, s, l })
+				return { ...obj, ...rgb, hex }
 			}
 			case 'r':
 			case 'g':
 			case 'b': {
-				obj[key] = Number(val);
-				const { r, g, b } = obj;
-				const { hsl, hex } = convertFromRgb({ r, g, b });
-				return { ...obj, ...hsl, hex };
+				obj[key] = Number(val)
+				const { r, g, b } = obj
+				const { hsl, hex } = convertFromRgb({ r, g, b })
+				return { ...obj, ...hsl, hex }
 			}
 			default: {
-				const hex = String(val);
+				const hex = String(val)
 				if (hex.length > 0 && hex.length % 3 === 0) {
-					const { hsl, rgb } = convertFromHex(hex);
-					return { ...rgb, ...hsl, hex };
+					const { hsl, rgb } = convertFromHex(hex)
+					return { ...rgb, ...hsl, hex }
 				} else {
-					return { ...obj, hex };
+					return { ...obj, hex }
 				}
 			}
 		}
 	}
 
 	function updateForegroundColors(key: string, val: ColorFieldInput): void {
-		foreground = getUpdatedColors(key, val, foreground);
+		foreground = getUpdatedColors(key, val, foreground)
 	}
 
 	function updateBackgroundColors(key: string, val: ColorFieldInput): void {
-		background = getUpdatedColors(key, val, background);
+		background = getUpdatedColors(key, val, background)
 	}
 </script>
 
@@ -137,11 +137,11 @@
 
 	.sample-text {
 		font-size: 16px;
+	}
 
-		&-large {
-			font-size: 24px;
-			font-weight: 700;
-		}
+	.sample-text-large {
+		font-size: 24px;
+		font-weight: 700;
 	}
 
 	.ratio {
@@ -149,10 +149,10 @@
 		font-weight: 500;
 		text-align: center;
 		margin: 24px 0;
+	}
 
-		&-row {
-			display: flex;
-			flex-wrap: wrap;
-		}
+	.ratio-row {
+		display: flex;
+		flex-wrap: wrap;
 	}
 </style>

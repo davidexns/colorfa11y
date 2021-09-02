@@ -1,6 +1,7 @@
 describe('Given I am on the home page', () => {
 	beforeEach(() => {
 		cy.visit('/')
+		// eslint-disable-next-line cypress/no-unnecessary-waiting
 		cy.wait(500) // TODO: Wait more explicitly
 	})
 

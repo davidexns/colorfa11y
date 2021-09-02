@@ -1,13 +1,12 @@
 module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
-	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'prettier',
-		'prettier/@typescript-eslint',
-	],
-	plugins: ['svelte3', '@typescript-eslint'],
+	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+	plugins: ['svelte3', '@typescript-eslint', 'testing-library'],
+	rules: {
+		'no-undef': ['off'],
+		'@typescript-eslint/no-inferrable-types': ['off'],
+	},
 	ignorePatterns: ['*.cjs'],
 	overrides: [
 		{ files: ['*.svelte'], processor: 'svelte3/svelte3' },
@@ -19,7 +18,7 @@ module.exports = {
 			extends: [
 				'plugin:jest/recommended',
 				'plugin:jest-dom/recommended',
-				'plugin:testing-library/recommended',
+				'plugin:testing-library/dom',
 			],
 			rules: {
 				'testing-library/prefer-presence-queries': ['error'],

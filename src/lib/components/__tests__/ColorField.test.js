@@ -3,13 +3,6 @@ import userEvent from '@testing-library/user-event'
 
 import ColorField from '../ColorField'
 
-const ARROW_UP = {
-	code: 'ArrowUp',
-}
-const ARROW_DOWN = {
-	code: 'ArrowDown',
-}
-
 describe('ColorField', () => {
 	const mockUpdateColor = jest.fn()
 	const mockProps = {
@@ -159,7 +152,7 @@ describe('ColorField', () => {
 	it('should not render prefix or suffix elements if none are provided', () => {
 		render(ColorField, { ...mockProps })
 
-		expect(screen.queryByTestId('color-prefix')).toBeNull()
-		expect(screen.queryByTestId('color-suffix')).toBeNull()
+		expect(screen.queryByTestId('color-prefix')).not.toBeInTheDocument()
+		expect(screen.queryByTestId('color-suffix')).not.toBeInTheDocument()
 	})
 })
