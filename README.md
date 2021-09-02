@@ -12,6 +12,7 @@
 
 ## Helpful Resources
 
+- [Svelte Kit documentation](https://kit.svelte.dev/)
 - [Converting Color Spaces in JavaScript, by Jon Kantner on CSS-Tricks](https://css-tricks.com/converting-color-spaces-in-javascript/)
 - [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [Converting Colors](https://convertingcolors.com/)
