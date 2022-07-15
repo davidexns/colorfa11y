@@ -51,7 +51,7 @@
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
 		"sass": "^1.0.0",
-		"svelte": "^3.42.4",
+		"svelte": "^3.49.0",
 		"svelte-check": "^1.4.0",
 		"svelte-htm": "^1.1.1",
 		"svelte-jester": "^1.7.0",
