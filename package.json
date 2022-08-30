@@ -59,7 +59,7 @@
 		"ts-jest": "^26.5.4",
 		"tslib": "^2.0.0",
 		"typescript": "^4.0.0",
-		"vite": "^2.1.0"
+		"vite": "^2.9.13"
 	},
 	"type": "module"
 }
