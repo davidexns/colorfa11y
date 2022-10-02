@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/svelte'
+import { render, screen, fireEvent, waitFor } from '@testing-library/svelte'
 import userEvent from '@testing-library/user-event'
 
 import ColorField from '../ColorField'
@@ -60,7 +60,7 @@ describe('ColorField', () => {
 			value: 50,
 		})
 
-		userEvent.type(screen.getByRole('textbox'), '{arrowup}')
+		fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowUp', code: 'ArrowUp' })
 
 		expect(mockUpdateColor).toHaveBeenCalledWith(51)
 	})
@@ -71,7 +71,7 @@ describe('ColorField', () => {
 			value: 50,
 		})
 
-		userEvent.type(screen.getByRole('textbox'), '{arrowdown}')
+		fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowDown', code: 'ArrowDown' })
 
 		expect(mockUpdateColor).toHaveBeenCalledWith(49)
 	})
