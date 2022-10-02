@@ -79,3 +79,6 @@ cypress/screenshots/
 /functions
 
 .netlify
+/test-results/
+/playwright-report/
+/playwright/.cache/
