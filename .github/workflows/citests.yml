@@ -1,12 +1,11 @@
-name: Build and test
+name: Quality
 
 on:
   pull_request:
     branches: [main]
 
 jobs:
-  setup:
-    name: Check out and install dependencies
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,20 +15,9 @@ jobs:
         with:
           node-version: 16.x
       - run: npm ci
-
-  build:
-    name: Build
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: npm run build --if-present
-
-  test:
-    name: Test
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: npm run lint
-      - run: npm test
+      - name: Build
+        run: npm run build --if-present
+      - name: Lint
+        run: npm run lint
+      - name: Unit test
+        run: npm test
