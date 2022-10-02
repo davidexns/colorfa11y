@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/svelte'
 
-import ContrastStatus from '../ContrastStatus'
+import ContrastStatus from '../ContrastStatus.svelte'
 
 describe('ContrastStatus', () => {
 	it('should show "pass" text when status is passed', () => {

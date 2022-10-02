@@ -12,14 +12,7 @@ module.exports = {
 		{ files: ['*.svelte'], processor: 'svelte3/svelte3' },
 		{
 			files: ['**/*.test.js'],
-			env: {
-				'jest/globals': true,
-			},
-			extends: [
-				'plugin:jest/recommended',
-				'plugin:jest-dom/recommended',
-				'plugin:testing-library/dom',
-			],
+			extends: ['plugin:jest-dom/recommended', 'plugin:testing-library/dom'],
 			rules: {
 				'testing-library/prefer-presence-queries': ['error'],
 			},

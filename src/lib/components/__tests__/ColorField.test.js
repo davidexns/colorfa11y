@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/svelte'
 import userEvent from '@testing-library/user-event'
 
-import ColorField from '../ColorField'
+import ColorField from '../ColorField.svelte'
 
 describe('ColorField', () => {
-	const mockUpdateColor = jest.fn()
+	const mockUpdateColor = vi.fn()
 	const mockProps = {
 		identifier: 'mockIdentifier',
 		label: 'mockLabel',

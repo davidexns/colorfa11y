@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/svelte'
 
-import ContrastLevel from '../ContrastLevel'
+import ContrastLevel from '../ContrastLevel.svelte'
 
 const mockRequiredProps = {
 	level: 'mockLevel',
