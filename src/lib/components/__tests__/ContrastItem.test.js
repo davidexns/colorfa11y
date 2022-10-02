@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/svelte'
 
-import ContrastItem from '../ContrastItem'
+import ContrastItem from '../ContrastItem.svelte'
 
 describe('ContrastItem', () => {
 	it('should render ContrastItem with the provided data', () => {
