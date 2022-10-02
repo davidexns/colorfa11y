@@ -6,6 +6,7 @@ export default defineConfig({
 	test: {
 		clearMocks: true,
 		environment: 'jsdom',
+		exclude: ['node_modules/**/*', 'tests/*'],
 		globals: true,
 		setupFiles: ['src/setupTest.js'],
 	},

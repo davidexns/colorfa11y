@@ -9,6 +9,7 @@
 		"preview": "vite preview",
 		"cy:run": "cypress run",
 		"cy:open": "cypress open",
+		"playwright": "playwright test",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"coverage": "npm run test -- --coverage",
@@ -26,6 +27,7 @@
 		]
 	},
 	"devDependencies": {
+		"@playwright/test": "^1.26.1",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.78",
 		"@sveltejs/adapter-node": "^1.0.0-next.96",
 		"@sveltejs/kit": "^1.0.0-next.507",
