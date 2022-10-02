@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/svelte'
+import { render, screen, fireEvent } from '@testing-library/svelte'
 import userEvent from '@testing-library/user-event'
 
 import ColorField from '../ColorField'
