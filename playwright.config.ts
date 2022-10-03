@@ -18,7 +18,7 @@ const config: PlaywrightTestConfig = {
 					port: 4173,
 				},
 		  }
-		: {}),
+		: { baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL }),
 	testDir: './tests',
 	/* Maximum time one test can run for. */
 	timeout: 30 * 1000,
