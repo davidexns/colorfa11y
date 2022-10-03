@@ -7,7 +7,7 @@ test.describe('Given I am on the home page', () => {
 
 	test.describe('when I change the foreground HSL color', () => {
 		test('should update the RGB and HEX color values', async ({ page }) => {
-			const foreground = await page.locator('form', { has: page.locator('text=Foreground') })
+			const foreground = page.locator('form', { has: page.locator('text=Foreground') })
 
 			await foreground.locator('text=Hue').fill('268')
 			await foreground.locator('text=Saturation').fill('64')
@@ -20,7 +20,7 @@ test.describe('Given I am on the home page', () => {
 		})
 
 		test('should calculate the contrast ratio', async ({ page }) => {
-			const foreground = await page.locator('form', { has: page.locator('text=Foreground') })
+			const foreground = page.locator('form', { has: page.locator('text=Foreground') })
 
 			await foreground.locator('text=Hue').fill('268')
 			await foreground.locator('text=Saturation').fill('64')
@@ -32,7 +32,7 @@ test.describe('Given I am on the home page', () => {
 
 	test.describe('when I change the foreground RGB color', () => {
 		test('should update the HSL and HEX color values', async ({ page }) => {
-			const foreground = await page.locator('form', { has: page.locator('text=Foreground') })
+			const foreground = page.locator('form', { has: page.locator('text=Foreground') })
 
 			await foreground.locator('text=Red').fill('93')
 			await foreground.locator('text=Green').fill('35')
@@ -45,7 +45,7 @@ test.describe('Given I am on the home page', () => {
 		})
 
 		test('should calculate the contrast ratio', async ({ page }) => {
-			const foreground = await page.locator('form', { has: page.locator('text=Foreground') })
+			const foreground = page.locator('form', { has: page.locator('text=Foreground') })
 
 			await foreground.locator('text=Red').fill('93')
 			await foreground.locator('text=Green').fill('35')
@@ -57,7 +57,7 @@ test.describe('Given I am on the home page', () => {
 
 	test.describe('when I change the foreground HEX color', () => {
 		test('should update the HSL and RGB color values', async ({ page }) => {
-			const foreground = await page.locator('form', { has: page.locator('text=Foreground') })
+			const foreground = page.locator('form', { has: page.locator('text=Foreground') })
 			await foreground.locator('label:text("Hex")').fill('5d239f')
 
 			await expect(foreground.locator('text=Hue')).toHaveValue('268')
@@ -69,7 +69,7 @@ test.describe('Given I am on the home page', () => {
 		})
 
 		test('should calculate the contrast ratio', async ({ page }) => {
-			const foreground = await page.locator('form', { has: page.locator('text=Foreground') })
+			const foreground = page.locator('form', { has: page.locator('text=Foreground') })
 
 			await foreground.locator('label:text("Hex")').fill('5d239f')
 
@@ -79,7 +79,7 @@ test.describe('Given I am on the home page', () => {
 
 	test.describe('when I change the background HSL color', () => {
 		test('should update the RGB and HEX color values', async ({ page }) => {
-			const background = await page.locator('form', { has: page.locator('text=Background') })
+			const background = page.locator('form', { has: page.locator('text=Background') })
 
 			await background.locator('text=Hue').fill('268')
 			await background.locator('text=Saturation').fill('38')
@@ -92,7 +92,7 @@ test.describe('Given I am on the home page', () => {
 		})
 
 		test('should calculate the contrast ratio', async ({ page }) => {
-			const background = await page.locator('form', { has: page.locator('text=Background') })
+			const background = page.locator('form', { has: page.locator('text=Background') })
 
 			await background.locator('text=Hue').fill('268')
 			await background.locator('text=Saturation').fill('38')
@@ -104,7 +104,7 @@ test.describe('Given I am on the home page', () => {
 
 	test.describe('when I change the background RGB color', () => {
 		test('should update the HSL and HEX color values', async ({ page }) => {
-			const background = await page.locator('form', { has: page.locator('text=Background') })
+			const background = page.locator('form', { has: page.locator('text=Background') })
 
 			await background.locator('text=Red').fill('161')
 			await background.locator('text=Green').fill('128')
@@ -117,7 +117,7 @@ test.describe('Given I am on the home page', () => {
 		})
 
 		test('should calculate the contrast ratio', async ({ page }) => {
-			const background = await page.locator('form', { has: page.locator('text=Background') })
+			const background = page.locator('form', { has: page.locator('text=Background') })
 
 			await background.locator('text=Red').fill('161')
 			await background.locator('text=Green').fill('128')
@@ -129,7 +129,7 @@ test.describe('Given I am on the home page', () => {
 
 	test.describe('when I change the background HEX color', () => {
 		test('should update the HSL and RGB color values', async ({ page }) => {
-			const background = await page.locator('form', { has: page.locator('text=Background') })
+			const background = page.locator('form', { has: page.locator('text=Background') })
 			await background.locator('label:text("Hex")').fill('a180c6')
 
 			await expect(background.locator('text=Hue')).toHaveValue('268')
@@ -141,7 +141,7 @@ test.describe('Given I am on the home page', () => {
 		})
 
 		test('should calculate the contrast ratio', async ({ page }) => {
-			const background = await page.locator('form', { has: page.locator('text=Background') })
+			const background = page.locator('form', { has: page.locator('text=Background') })
 
 			await background.locator('label:text("Hex")').fill('a180c6')
 
@@ -161,7 +161,7 @@ test.describe('Given I am on the home page', () => {
 				.locator('label:text("Hex")')
 				.fill('fff')
 
-			const aaSection = await page.locator('data-testid=AA-compliance')
+			const aaSection = page.locator('data-testid=AA-compliance')
 
 			await expect(aaSection.locator('text=pass')).toHaveCount(3)
 		})
@@ -177,7 +177,7 @@ test.describe('Given I am on the home page', () => {
 				.locator('label:text("Hex")')
 				.fill('fff')
 
-			const aaaSection = await page.locator('data-testid=AAA-compliance')
+			const aaaSection = page.locator('data-testid=AAA-compliance')
 
 			await expect(
 				aaaSection
@@ -200,7 +200,7 @@ test.describe('Given I am on the home page', () => {
 				.locator('label:text("Hex")')
 				.fill('fff')
 
-			const aaaSection = await page.locator('data-testid=AAA-compliance')
+			const aaaSection = page.locator('data-testid=AAA-compliance')
 
 			await expect(aaaSection.locator('text=pass')).toHaveCount(3)
 		})
