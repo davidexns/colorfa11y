@@ -6,7 +6,6 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
