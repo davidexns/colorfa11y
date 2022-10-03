@@ -11,10 +11,14 @@ import { devices } from '@playwright/test'
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-	webServer: {
-		command: 'npm run build && npm run preview',
-		port: 4173,
-	},
+	...(!process.env.CI
+		? {
+				webServer: {
+					command: 'npm run build && npm run preview',
+					port: 4173,
+				},
+		  }
+		: {}),
 	testDir: './tests',
 	/* Maximum time one test can run for. */
 	timeout: 30 * 1000,
