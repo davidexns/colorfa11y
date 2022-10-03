@@ -68,10 +68,6 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-# Cypress
-cypress/videos
-cypress/screenshots/
-
 # Svelte Kit
 /.svelte
 /.svelte-kit
@@ -79,6 +75,8 @@ cypress/screenshots/
 /functions
 
 .netlify
+
+# Playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/

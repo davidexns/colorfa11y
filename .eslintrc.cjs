@@ -18,11 +18,11 @@ module.exports = {
 			},
 		},
 		{
-			files: ['cypress/**/*'],
+			files: ['tests/**/*'],
 			env: {
 				node: true,
 			},
-			extends: ['plugin:cypress/recommended'],
+			extends: ['plugin:playwright/playwright-test'],
 		},
 	],
 	settings: {
