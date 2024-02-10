@@ -13,7 +13,7 @@
 		"coverage": "npm run test -- --coverage",
 		"format": "prettier --write .",
 		"svelte-check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"lint": "prettier --check . && eslint --ignore-path .gitignore . && npm run svelte-check",
+		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
 		"prepare": "husky install"
 	},
 	"lint-staged": {
@@ -21,7 +21,7 @@
 			"eslint"
 		],
 		"*.{js,ts,json,svelte,md}": [
-			"prettier --write --plugin-search-dir=."
+			"prettier --write"
 		]
 	},
 	"devDependencies": {
