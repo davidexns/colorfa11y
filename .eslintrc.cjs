@@ -1,6 +1,5 @@
 module.exports = {
 	root: true,
-	parser: '@typescript-eslint/parser',
 	extends: [
 		'eslint:recommended',
 		'plugin:svelte/recommended',
@@ -14,6 +13,13 @@ module.exports = {
 	},
 	ignorePatterns: ['*.cjs'],
 	overrides: [
+		{
+			files: ['*.svelte'],
+			parser: 'svelte-eslint-parser',
+			parserOptions: {
+				parser: '@typescript-eslint/parser',
+			},
+		},
 		{
 			files: ['**/*.test.js'],
 			extends: ['plugin:jest-dom/recommended', 'plugin:testing-library/dom'],
@@ -32,9 +38,9 @@ module.exports = {
 	settings: {
 		'svelte3/typescript': require('typescript'),
 	},
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		ecmaVersion: 2019,
-		sourceType: 'module',
+		extraFileExtensions: ['.svelte'],
 	},
 	env: {
 		browser: true,
