@@ -10,10 +10,10 @@
 	function handleKeyDown(e: KeyboardEvent) {
 		if (isHex) return
 
-		if (e.code === 'ArrowUp' && value < max) {
+		if (e.code === 'ArrowUp' && Number(value) < max) {
 			e.preventDefault()
 			updateColor(Number(value) + 1)
-		} else if (e.code === 'ArrowDown' && value > min) {
+		} else if (e.code === 'ArrowDown' && Number(value) > min) {
 			e.preventDefault()
 			updateColor(Number(value) - 1)
 		}
