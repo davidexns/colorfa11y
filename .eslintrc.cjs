@@ -7,14 +7,13 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended',
 		'prettier',
 	],
-	plugins: ['svelte3', '@typescript-eslint', 'testing-library'],
+	plugins: ['@typescript-eslint', 'testing-library'],
 	rules: {
 		'no-undef': ['off'],
 		'@typescript-eslint/no-inferrable-types': ['off'],
 	},
 	ignorePatterns: ['*.cjs'],
 	overrides: [
-		// { files: ['*.svelte'], processor: 'svelte3/svelte3' },
 		{
 			files: ['**/*.test.js'],
 			extends: ['plugin:jest-dom/recommended', 'plugin:testing-library/dom'],
