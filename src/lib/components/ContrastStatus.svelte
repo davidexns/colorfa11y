@@ -11,7 +11,9 @@
 		padding: 8px 16px;
 		border-radius: 24px;
 		font-weight: 700;
-		transition: color 150ms ease-in-out, background 150ms ease-in-out;
+		transition:
+			color 150ms ease-in-out,
+			background 150ms ease-in-out;
 		will-change: color, background;
 		background: var(--status-fail-background);
 		color: var(--status-fail-foreground);
