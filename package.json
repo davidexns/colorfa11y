@@ -11,7 +11,7 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"coverage": "npm run test -- --coverage",
-		"format": "prettier --write --plugin-search-dir=. ./**/*.{js,ts,json,html,svelte,md}",
+		"format": "prettier --write .",
 		"svelte-check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"lint": "prettier --check . && eslint --ignore-path .gitignore . && npm run svelte-check",
 		"prepare": "husky install"
